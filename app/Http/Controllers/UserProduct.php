@@ -18,7 +18,7 @@ class UserProduct extends Controller
 
     public function addproduct(ProductAddproductRequest $product)
     {
-        $data = $product();
+        $data = $product;
         $path = $product->file('image')->store('uploads', 'public');
         $data['image'] = $path;
         $product = Product::create($data);
