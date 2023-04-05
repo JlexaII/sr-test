@@ -71,15 +71,23 @@ Route::middleware('auth')->group(function () {
     Route::view('zakazlar', 'auth.inc.zakaz')->middleware('verified')
         ->name('zakazlar');
 
-    Route::get('/mahsulot', [UserProduct::class,'create'])->name('mahsulot');
+    Route::get('/mahsulot', [UserProduct::class,'create'])->middleware('verified')->name('mahsulot');
 
-    Route::post('/mahsulot', [UserProduct::class,'addproduct']);
+    Route::post('/mahsulot', [UserProduct::class,'addproduct'])->middleware('verified');
 
-    Route::post('/mahsulot/{id}', [UserProduct::class,'proddelete'])->name('proddelete');
+    Route::post('/mahsulot/{id}', [UserProduct::class,'proddelete'])->middleware('verified')->name('proddelete');
+
+    Route::get('/mahsulot/{id}/edit', [UserProduct::class,'prodedit'])->middleware('verified')->name('edit');
+
+    Route::post('/mahsulot/{id}/save', [UserProduct::class,'prodeditSave'])->middleware('verified')->name('prodeditSave');
+
+    Route::post('/trash/{id}', [UserProduct::class,'prodreturn'])->middleware('verified')->name('prodreturn');
     
-    Route::get('/trash', [UserProduct::class, 'trash'])->name('trash');
+    Route::get('/trash', [UserProduct::class, 'trash'])->middleware('verified')->name('trash');
 
-    Route::get('/search', [UserProduct::class, 'search'])->name('search');
+    Route::get('/search', [UserProduct::class, 'search'])->middleware('verified')->name('search');
+
+    Route::get('/searchTrash', [UserProduct::class, 'searchTrash'])->middleware('verified')->name('searchTrash');
 
     Route::view('oluvchi', 'auth.inc.oluvchi')->middleware('verified')
         ->name('oluvchi');

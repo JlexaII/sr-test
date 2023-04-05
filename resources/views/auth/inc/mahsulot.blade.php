@@ -18,7 +18,6 @@
                         <form action="{{ route('search') }}" method="get">
                             <input type="text" id="s" name="s" class="form-control"
                                 placeholder="Nomi bilan izlash" />
-
                     </div>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-search"></i>
@@ -53,8 +52,10 @@
                                 <td>{{ $project->brand_id }}</td>
                                 <td><img src="{{ asset('/storage/' . $project->image) }}" class="img-thumbnail zoom"></td>
                                 <td>
-                                    <button class="btn btn-success btn-sm" style="float: right;" data-bs-toggle="modal"
-                                        data-bs-target="#add-product-edit-modal"><i class="fa fa-edit"></i></button>
+
+                                    <a href="{{ route('edit', $project->id) }}" class="btn btn-success btn-sm"
+                                        style="float: right;"><i class="fa fa-edit"></i></a>
+
                                 </td>
                                 <td>
                                     <form action="{{ route('proddelete', $project->id) }}" method="post">
@@ -103,7 +104,7 @@
             </script>
         </main>
 
-        <!-- The Modal -->
+        <!-- The Modal CREATE -->
         <div class="modal" id="add-product-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -128,7 +129,7 @@
                                     name="name" value="{{ old('name') }}" required autofocus
                                     class="{{ $errors->has('name') }}">
                                 @error('name')
-                                    <p class="text-danger">Muhsulot nomini kiriting</p>
+                                    <p class="text-danger">{{ $message }}</p>
                                 @else
                                     <label for="name" class="form-label text-success">Mahsulot nomi</label>
                                 @enderror
@@ -138,7 +139,7 @@
                                 <input type="text" required autofocus class="form-control {{ $errors->has('soni') }}"
                                     id="soni" placeholder="mahsulot soni" name="soni">
                                 @error('soni')
-                                    <p class="text-danger">Mahsulotni soni nechta</p>
+                                    <p class="text-danger">{{ $message }}</p>
                                 @else
                                     <label for="soni" class="form-label text-success">Soni</label>
                                 @enderror
@@ -148,7 +149,7 @@
                                 <input type="text" required autofocus class="form-control {{ $errors->has('price') }}"
                                     id="price" placeholder="Narxi" name="price">
                                 @error('price')
-                                    <p class="text-danger">(Narx) Summa bolishi lozim {{ $message }}</p>
+                                    <p class="text-danger">{{ $message }}</p>
                                 @else
                                     <label for="price" class="form-label text-success">Narxi</label>
                                 @enderror
@@ -158,20 +159,19 @@
                                 <input type="text" required autofocus class="form-control {{ $errors->has('artikul') }}"
                                     id="artikul" placeholder="Unikal raqam" name="artikul">
                                 @error('artikul')
-                                    <p class="text-danger">Artikul kiriting</p>
+                                    <p class="text-danger">{{ $message }}</p>
                                 @else
-                                    <label for="artikul" class="form-label">Artikul</label>
+                                    <label for="artikul" class="form-label text-success">Artikul</label>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
                                 <input type="text" required autofocus class="form-control" id="category_id"
                                     placeholder="Unikal raqam" name="category_id">
-                                <label for="turkum" class="form-label">Turkum</label>
                                 @error('category_id')
-                                    <p class="text-danger">Turkum kiriting {{ message() }}</p>
+                                    <p class="text-danger">{{ $message }}</p>
                                 @else
-                                    <label for="category_id" class="form-label">Turkum</label>
+                                    <label for="category_id" class="form-label text-success">Turkum</label>
                                 @enderror
                             </div>
 
@@ -179,118 +179,17 @@
 
                                 <input type="text" required autofocus class="form-control" id="brand_id"
                                     placeholder="Unikal raqam" name="brand_id">
-                                <label for="brand" class="form-label">Brend</label>
                                 @error('brand_id')
-                                    <p class="text-danger">Brend kiriting</p>
+                                    <p class="text-danger">{{ $message }}</p>
                                 @else
-                                    <label for="brand_id" class="form-label">Brend</label>
+                                    <label for="brand_id" class="form-label text-success">Brend</label>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
                                 <input type="file" required class="form-control" id="rasm" placeholder="Rasm"
                                     name="image">
-                                <label for="rasm" class="form-label">Rasm tanlang</label>
-                            </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Saqlash</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiqish</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- The Modal EDIT O`zgartish-->
-        <div class="modal" id="add-product-edit-modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Mahsulot qo`shish</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <form action="{{ route('mahsulot') }}" method="POST" class="needs-validation" novalidate
-                        enctype="multipart/form-data">
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            @csrf
-
-                            <input type="hidden" value="{{ auth()->user()->id }} " name="user_id">
-                            <input type="hidden" value="1" name="active">
-
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="name" placeholder="mahsulot nomi"
-                                    name="name" value="{{ old('name') }}" required autofocus
-                                    class="{{ $errors->has('name') }}">
-                                @error('name')
-                                    <p class="text-danger">Muhsulot nomini kiriting</p>
-                                @else
-                                    <label for="name" class="form-label text-success">Mahsulot nomi</label>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="text" required autofocus class="form-control {{ $errors->has('soni') }}"
-                                    id="soni" placeholder="mahsulot soni" name="soni">
-                                @error('soni')
-                                    <p class="text-danger">Mahsulotni soni nechta</p>
-                                @else
-                                    <label for="soni" class="form-label text-success">Soni</label>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="text" required autofocus class="form-control {{ $errors->has('price') }}"
-                                    id="price" placeholder="Narxi" name="price">
-                                @error('price')
-                                    <p class="text-danger">(Narx) Summa bolishi lozim {{ $message }}</p>
-                                @else
-                                    <label for="price" class="form-label text-success">Narxi</label>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="text" required autofocus
-                                    class="form-control {{ $errors->has('artikul') }}" id="artikul"
-                                    placeholder="Unikal raqam" name="artikul">
-                                @error('artikul')
-                                    <p class="text-danger">Artikul kiriting</p>
-                                @else
-                                    <label for="artikul" class="form-label">Artikul</label>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="number" required autofocus class="form-control" id="category_id"
-                                    placeholder="Unikal raqam" name="category_id">
-                                <label for="turkum" class="form-label">Turkum</label>
-                                @error('category_id')
-                                    <p class="text-danger">Turkum kiriting {{ message() }}</p>
-                                @else
-                                    <label for="category_id" class="form-label">Turkum</label>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-
-                                <input type="text" required autofocus class="form-control" id="brand_id"
-                                    placeholder="Unikal raqam" name="brand_id">
-                                <label for="brand" class="form-label">Brend</label>
-                                @error('brand_id')
-                                    <p class="text-danger">Brend kiriting</p>
-                                @else
-                                    <label for="brand_id" class="form-label">Brend</label>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="file" required class="form-control" id="rasm" placeholder="Rasm"
-                                    name="image">
-                                <label for="rasm" class="form-label">Rasm tanlang</label>
+                                <label for="rasm" class="form-label text-success">Rasm tanlang</label>
                             </div>
                         </div>
                         <!-- Modal footer -->

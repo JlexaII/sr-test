@@ -25,7 +25,7 @@
             <div class="col-md-3 col-xs-12 sidebar">
                 @include('auth.inc.sidebar')
             </div>
-            <div class="col-md-8 col-xs-12 main bg-info">
+            <div class="col-md-8 col-xs-12 bg-info">
                 @yield('content')
             </div>
         </div>

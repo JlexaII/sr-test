@@ -182,6 +182,10 @@ return [
     'attributes' => [
         'password' => 'Parol',
         'email' => 'E-pochta',
+        'price' => 'Narx',
+        'name' => 'nom',
+        'brand_id' => 'firma nomi',
+        'category_id' => 'turkum'
     ],
 
 ];
