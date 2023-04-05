@@ -43,11 +43,11 @@
                         @foreach ($product as $project)
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ Str::limit($project->name, 15) }}</td>
+                                <td>{{ Str::limit($project->name, 12) }}</td>
                                 <td>{{ $project->soni }}</td>
                                 <td>{{ $project->price }}</td>
                                 <td>{{ $project->old_price }}</td>
-                                <td>{{ $project->artikul }}</td>
+                                <td>{{ Str::limit($project->artikul, 5) }}</td>
                                 <td>{{ $project->category_id }}</td>
                                 <td>{{ $project->brand_id }}</td>
                                 <td><img src="{{ asset('/storage/' . $project->image) }}" class="img-thumbnail zoom"></td>
