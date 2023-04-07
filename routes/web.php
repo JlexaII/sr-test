@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\EmailVerificationNotificationController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RgController;
 use App\Http\Controllers\RPController;
 use App\Http\Controllers\UserProduct;
@@ -89,6 +90,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/searchTrash', [UserProduct::class, 'searchTrash'])->middleware('verified')->name('searchTrash');
 
+    Route::get('/profil', [ProfileController::class, 'index'])->middleware('verified')
+        ->name('profil');
+
+        Route::post('/profil', [ProfileController::class, 'store'])->middleware('verified');
+
     Route::view('oluvchi', 'auth.inc.oluvchi')->middleware('verified')
         ->name('oluvchi');
 
@@ -107,6 +113,4 @@ Route::middleware('auth')->group(function () {
     Route::view('sozlama', 'auth.inc.sozlama')->middleware('verified')
         ->name('sozlama');
 
-    Route::view('profil', 'auth.inc.profil')->middleware('verified')
-        ->name('profil');
 });

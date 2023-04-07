@@ -12,7 +12,7 @@ class UserProduct extends Controller
     public function create()
     {
         $id = Auth::id();
-        $product = Product::where('active', '1')->where('user_id', $id)->paginate(4);
+        $product = Product::where('active', '1')->where('user_id', $id)->Paginate(15);
         return view('auth.inc.mahsulot', ['product' => $product]);
     }
 

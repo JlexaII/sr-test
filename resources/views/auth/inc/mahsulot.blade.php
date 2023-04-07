@@ -48,8 +48,8 @@
                                 <td>{{ $project->price }}</td>
                                 <td>{{ $project->old_price }}</td>
                                 <td>{{ Str::limit($project->artikul, 5) }}</td>
-                                <td>{{ $project->category_id }}</td>
-                                <td>{{ $project->brand_id }}</td>
+                                <td>{{ Str::limit($project->category_id, 4) }}</td>
+                                <td>{{ Str::limit($project->brand_id, 4) }}</td>
                                 <td><img src="{{ asset('/storage/' . $project->image) }}" class="img-thumbnail zoom"></td>
                                 <td>
 
@@ -68,7 +68,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $product->links() }}
+                {{ $product->onEachSide(0)->links() }}
             </div>
 
             <style>
