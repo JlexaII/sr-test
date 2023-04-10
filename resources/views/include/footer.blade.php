@@ -5,8 +5,8 @@
         <footer class="bg-info-subtle fixed-bottom col align-self-center p-3 d-none d-md-flex d-xl-flex">
             <div class="col-md-4 d-flex start-0 p-2">
                 <!-- <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                               <img src="images/logo_Axmed.png" alt="Axmedov's logotip">
-                            </a> -->
+                                   <img src="images/logo_Axmed.png" alt="Axmedov's logotip">
+                                </a> -->
                 <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Ltd. Guvohnoma № 637736</span>
             </div>
             <div class="position-relative align-self-center">Telefon: +998 33 360 60 28</div>
@@ -44,26 +44,38 @@
                 @if (Route::has('login'))
                     @auth
                         <div class="dropup-center dropup">
-                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user fa-1x"></i>
-                                <h6 class="text center">Profil</h6>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('kabinet')}}">Kabinet</a></li>
-                                <li><a class="dropdown-item" href="#">Zakazlar</a></li>
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">Chiqish</a></li>
-                                </form>
-                            </ul>
+                            @if (request()->user()->hasVerifiedEmail())
+                                <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user fa-1x"></i>
+                                    <h6 class="text center">Profil</h6>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('kabinet') }}">Kabinet</a></li>
+                                    <li><a class="dropdown-item" href="#">Zakazlar</a></li>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); this.closest('form').submit();">Chiqish</a>
+                                        </li>
+                                    </form>
+                                </ul>
                         </div>
                     @else
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalK">
-                            <i class="fa-solid fa-user fa-1x"></i>
-                            <h6 class="text center">Profil</h6>
-                        </button>
-                    @endauth
+                        <form action="{{ route('verification.send') }}" method="post" autocomplete="off">
+                            @csrf
+
+                            <div>
+                                <button type="submit" class="flex text-danger dropdown-item">Xatni
+                                    takroran jo`natish</button>
+                            </div>
+                        </form>
+                    @endif
+                @else
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalK">
+                        <i class="fa-solid fa-user fa-1x"></i>
+                        <h6 class="text center">Profil</h6>
+                    </button>
+                @endauth
                 @endif
             </div>
         </footer>

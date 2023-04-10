@@ -59,7 +59,7 @@
                                                     </li>
                                                 </form>
                                             @else
-                                                <form action="{{ route('verification.send') }}" method="post"
+                                                <form action="{{ route('verification.send') }}" method="post" 
                                                     autocomplete="off">
                                                     @csrf
 

@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('cname', 100);
-            $table->string('adress', 150)->default();
+            $table->string('cname', 100)->nullable();
+            $table->string('adress', 150)->default()->nullable();
             $table->string('telefon', 15)->nullable();
-            $table->string('account', 25)->default();
+            $table->string('account', 25)->default()->nullable();
             $table->decimal('amount', 10, 2, true)->default(0)->nullable();
             $table->decimal('turnover', 10, 2, true)->default(0)->nullable();
-            $table->string('bank', 50)->default('bank');
-            $table->string('mfo', 5)->default(10001);
-            $table->string('inn', 9)->default(100000001);
+            $table->string('bank', 50)->default('bank')->nullable();
+            $table->string('mfo', 5)->default(10001)->nullable();
+            $table->string('inn', 9)->default(100000001)->nullable();
             $table->string('photo_extension')->nullable();
-            $table->string('social', 250)->default();
+            $table->string('social', 250)->default()->nullable();
             $table->string('active',1)->nullable();
             $table->string('Tarif',1)->nullable()->default(0);
             $table->timestamps();

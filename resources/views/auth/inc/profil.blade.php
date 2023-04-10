@@ -65,7 +65,7 @@
             <h1>Profil qismi</h1>
 
             <form action="{{ url('profile/foto') }}" method="post" style="display: none" id="avatarForm">
-                {{ csrf_field() }}
+                @csrf
                 <input type="file" id="avatarInput" name="photo">
             </form>
             <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="20%">
