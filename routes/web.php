@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::post('/profile/foto', [ProfileController::class, 'updatePhoto']);
+
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RgController::class, 'create'])
         ->name('register');
@@ -96,7 +98,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/profile/{id}', [ProfileController::class, 'store'])->middleware('verified')->name('profileSave');
 
-    Route::post('/profile/foto', [ProfileController::class, 'updatePhoto'])->middleware('verifed');
+
 
     Route::view('oluvchi', 'auth.inc.oluvchi')->middleware('verified')
         ->name('oluvchi');
@@ -116,3 +118,5 @@ Route::middleware('auth')->group(function () {
         ->name('sozlama');
 
 });
+
+
