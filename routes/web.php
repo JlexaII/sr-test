@@ -11,6 +11,7 @@ use App\Http\Controllers\RPController;
 use App\Http\Controllers\UserProduct;
 use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Session\Middleware\StartSession;
 
 
 Route::get('/', function () {
@@ -84,7 +85,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/mahsulot/{id}/save', [UserProduct::class,'prodeditSave'])->middleware('verified')->name('prodeditSave');
 
     Route::post('/trash/{id}', [UserProduct::class,'prodreturn'])->middleware('verified')->name('prodreturn');
-    
+
     Route::get('/trash', [UserProduct::class, 'trash'])->middleware('verified')->name('trash');
 
     Route::get('/search', [UserProduct::class, 'search'])->middleware('verified')->name('search');
@@ -94,12 +95,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->middleware('verified')->name('profile');
 
     Route::post('/profile/{id}', [ProfileController::class, 'store'])->middleware('verified')->name('profileSave');
-    
+
     Route::post('/profile/foto', [ProfileController::class, 'updatePhoto'])->middleware('verifed');
 
     Route::view('oluvchi', 'auth.inc.oluvchi')->middleware('verified')
         ->name('oluvchi');
-     
+
     Route::get('/bozor', [BozorController::class, 'index'])->middleware('verified')->name('bozor');
 
     Route::view('narxlar', 'auth.inc.narxlar')->middleware('verified')

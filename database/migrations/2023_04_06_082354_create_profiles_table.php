@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('bank', 50)->default('bank')->nullable();
             $table->string('mfo', 5)->default(10001)->nullable();
             $table->string('inn', 9)->default(100000001)->nullable();
-            $table->string('photo_extension')->nullable();
             $table->string('social', 250)->default()->nullable();
             $table->string('active',1)->nullable();
             $table->string('Tarif',1)->nullable()->default(0);
