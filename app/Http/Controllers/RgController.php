@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -24,9 +25,18 @@ class RgController extends Controller
             'password' => ['required', 'min:8']
         ]);
 
+        $profile = new Profile();
+
         $user = User::create([
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password)            
+        ]);
+
+        $profile = Profile::create([
+            'cname' => 'No company',
+            'adress' => 'No adress',
+            'telefon' => '999999999999',
+            'account' => '20208000500564842001'
         ]);
 
         event(new Registered($user));

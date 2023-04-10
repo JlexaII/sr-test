@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\BozorController;
 use App\Http\Controllers\EmailVerificationNotificationController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LoginController;
@@ -90,16 +91,16 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/searchTrash', [UserProduct::class, 'searchTrash'])->middleware('verified')->name('searchTrash');
 
-    Route::get('/profil', [ProfileController::class, 'index'])->middleware('verified')
-        ->name('profil');
+    Route::get('/profile', [ProfileController::class, 'index'])->middleware('verified')->name('profile');
 
-        Route::post('/profil', [ProfileController::class, 'store'])->middleware('verified');
+    Route::post('/profile/{id}', [ProfileController::class, 'store'])->middleware('verified')->name('profileSave');
+    
+    Route::post('/profile/foto', [ProfileController::class, 'updatePhoto'])->middleware('verifed');
 
     Route::view('oluvchi', 'auth.inc.oluvchi')->middleware('verified')
         ->name('oluvchi');
-
-    Route::view('bozor', 'auth.inc.bozor')->middleware('verified')
-        ->name('bozor');
+     
+    Route::get('/bozor', [BozorController::class, 'index'])->middleware('verified')->name('bozor');
 
     Route::view('narxlar', 'auth.inc.narxlar')->middleware('verified')
         ->name('narxlar');

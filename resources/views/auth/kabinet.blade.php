@@ -58,7 +58,7 @@
         }
     </style>
 
-    <body>        
+    <body>
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="check" viewBox="0 0 16 16">
                 <title>Check</title>
@@ -66,8 +66,9 @@
                     d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
             </symbol>
 
-            <symbol id="money" viewBox="0 0 20 20">                
-                    <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+            <symbol id="money" viewBox="0 0 20 20">
+                <path
+                    d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
             </symbol>
         </svg>
 
@@ -99,8 +100,8 @@
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title pricing-card-title"><svg class="bi" width="24" height="24">
-                                    <use xlink:href="#money" />
-                                </svg>0<small class="text-muted fw-light">/yil</small>
+                                        <use xlink:href="#money" />
+                                    </svg>0<small class="text-muted fw-light">/yil</small>
                                 </h3>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>100 Mahsulot qo'shing</li>
@@ -114,13 +115,13 @@
                     </div>
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm">
-                            <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Professional</h4>
+                            <div class="card-header py-3 text-bg-warning border-warning">
+                                <h4 class="my-0 fw-normal">Savdogar</h4>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title pricing-card-title"><svg class="bi" width="24" height="24">
-                                    <use xlink:href="#money" />
-                                </svg>250 000<small class="text-muted fw-light">/yil</small>
+                                        <use xlink:href="#money" />
+                                    </svg>250 000<small class="text-muted fw-light">/yil</small>
                                 </h3>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>101-500 Mahsulot qo'shing</li>
@@ -128,29 +129,55 @@
                                     <li>Tez-tez yangiliklar bilish</li>
                                     <li>Telefon orqali yordam</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary">Boshlash</button>
+                                <button type="button" class="w-100 btn btn-lg btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#oplata250Modal">Boshlash</button>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                            <div class="card-header py-3 text-bg-primary border-primary">
+                        <div class="card mb-4 rounded-3 shadow-sm border-success">
+                            <div class="card-header py-3 text-bg-success border-success">
                                 <h4 class="my-0 fw-normal">Korxona</h4>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title pricing-card-title">
                                     <svg class="bi" width="24" height="24">
                                         <use xlink:href="#money" />
-                                    </svg>                                    
-                                    700 000<small class="text-muted fw-light">/yil</small>
+                                    </svg>
+                                    750 000<small class="text-muted fw-light">/yil</small>
+                                </h3>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>501-1000 mahsulot qo'shing</li>
+                                    <li>Active reklama</li>
+                                    <li>Tel. va @-pochta orqali yordam</li>
+                                    <li>Yordam markaziga kirish</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#oplata750Modal">Boshlash</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-bg-primary border-primary">
+                                <h4 class="my-0 fw-normal">Katta Korxona</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title pricing-card-title">
+                                    <svg class="bi" width="24" height="24">
+                                        <use xlink:href="#money" />
+                                    </svg>
+                                    1 200 000<small class="text-muted fw-light">/yil</small>
                                 </h3>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>Cheksiz mahsulot qo'shing</li>
                                     <li>Active reklama</li>
                                     <li>Tel. va @-pochta orqali yordam</li>
                                     <li>Yordam markaziga kirish</li>
+                                    <li>Unikal sertifikat</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary">Biz bilan bog'lanish</button>
+                                <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#oplata1200Modal">Biz bilan bog'lanish</button>
                             </div>
                         </div>
                     </div>
@@ -166,6 +193,7 @@
                                 <th style="width: 22%;">Bepul</th>
                                 <th style="width: 22%;">Professional</th>
                                 <th style="width: 22%;">Korxona</th>
+                                <th style="width: 22%;">Katta Korxona</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -180,10 +208,16 @@
                                 <td><svg class="bi" width="24" height="24">
                                         <use xlink:href="#check" />
                                     </svg></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
                             </tr>
                             <tr>
                                 <th scope="row" class="text-start">Shaxsiy</th>
                                 <td></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
                                 <td><svg class="bi" width="24" height="24">
                                         <use xlink:href="#check" />
                                     </svg></td>
@@ -205,10 +239,16 @@
                                 <td><svg class="bi" width="24" height="24">
                                         <use xlink:href="#check" />
                                     </svg></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
                             </tr>
                             <tr>
                                 <th scope="row" class="text-start">Ulashish</th>
                                 <td></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
                                 <td><svg class="bi" width="24" height="24">
                                         <use xlink:href="#check" />
                                     </svg></td>
@@ -225,9 +265,24 @@
                                 <td><svg class="bi" width="24" height="24">
                                         <use xlink:href="#check" />
                                     </svg></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
                             </tr>
                             <tr>
                                 <th scope="row" class="text-start">Qo'shimcha xavfsizlik</th>
+                                <td></td>
+                                <td></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
+                                <td><svg class="bi" width="24" height="24">
+                                        <use xlink:href="#check" />
+                                    </svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Sertifikat</th>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td><svg class="bi" width="24" height="24">
@@ -241,9 +296,91 @@
 
         </div>
 
-
-
     </body>
+
+    <!-- Modal oplata 250 ming -->
+    <div class="modal fade" id="oplata250Modal" tabindex="-1" aria-labelledby="oplataModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning border-warning">
+                    <h1 class="modal-title fs-5" id="oplata250ModalLabel">Savdogar tarifi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    1. Korxonalarga to`lov turi bank orqali pul o`tkazish bilan amalga oshadi.
+                    <br>
+                    <hr>
+                    <br> Bank nomi: Ipoteka Bank
+                    <br> MFO: 00364
+                    <br> Xisob raqam: 20208000800925388001
+                    <br> INN: 305763162
+
+                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Tarif Savdogar" bir yilga
+                    250 000 so'm o`tkazdik.
+                    <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal oplata 750 ming -->
+    <div class="modal fade" id="oplata750Modal" tabindex="-1" aria-labelledby="oplataModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-success border-success">
+                    <h1 class="modal-title fs-5" id="oplata750ModalLabel">Karxona tarifi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    1. Korxonalarga to`lov turi bank orqali pul o`tkazish bilan amalga oshadi.
+                    <br>
+                    <hr>
+                    <br> Bank nomi: Ipoteka Bank
+                    <br> MFO: 00364
+                    <br> Xisob raqam: 20208000800925388001
+                    <br> INN: 305763162
+
+                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Tarif Korxona" bir yilga
+                    750 000 so'm o`tkazdik.
+                    <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal oplata 1 200 ming -->
+    <div class="modal fade" id="oplata1200Modal" tabindex="-1" aria-labelledby="oplataModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-primary border-primary">
+                    <h1 class="modal-title fs-5" id="oplata1200ModalLabel">Katta Karxona tarifi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    1. Korxonalarga to`lov turi bank orqali pul o`tkazish bilan amalga oshadi.
+                    <br>
+                    <hr>
+                    <br> Bank nomi: Ipoteka Bank
+                    <br> MFO: 00364
+                    <br> Xisob raqam: 20208000800925388001
+                    <br> INN: 305763162
+
+                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Tarif Katta Karxona" bir yilga
+                    1 200 000 so'm o`tkazdik.
+                    <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
+                </div>
+                <div class="modal-footer">
+                    <h4 class="text-primary">Bu plan bilan boshlash uchun Siz support@silksroads.uz xat jo'nating va biz Siz bilan bog'lanamiz.
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </html>
 @endsection

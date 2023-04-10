@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="cname" viewBox="0 0 16 16">
             <path
@@ -62,18 +63,18 @@
     <div class="row container">
         <div class="p-2 mt-2 text-center">
             <h1>Profil qismi</h1>
+
+            <form action="{{ url('profile/foto') }}" method="post" style="display: none" id="avatarForm">
+                {{ csrf_field() }}
+                <input type="file" id="avatarInput" name="photo">
+            </form>
+            <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="20%">
         </div>
 
         <hr>
         <div class="col-8 p-2 mt-2 text-center">
-            <form action="{{ route('profil') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('profileSave', $profile->id) }}" method="post">
                 @csrf
-                <div class="mb-3">
-                    <svg class="bi mt-2" width="24" height="24">
-                        <use xlink:href="#camera" />
-                    </svg>
-                    <input class="form-control" type="file" id="ProfFile" name="PFile">
-                </div>
 
                 <div class="input-group mb-3">
                     <svg class="bi mt-2" width="24" height="24">
@@ -106,8 +107,7 @@
                             <use xlink:href="#env" />
                         </svg>
                         <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" placeholder="@-pochta"
-                            value="{{ request()->user()->email }}" name="email">
+                        <input type="text" class="form-control" disabled value="{{ request()->user()->email }}">
                     </div>
                 </div>
                 <div class="mb-3">
@@ -143,11 +143,6 @@
                 </div>
 
                 <div class="input-group">
-                    <span class="input-group-text">Qisqa informaciya</span>
-                    <textarea class="form-control" value="{{ $profile->text }}" name="text"></textarea>
-                </div>
-
-                <div class="input-group">
                     <button type="submit" class="bi btn btn-success"><svg class="bi mt-2" width="24"
                             height="24">
                             <use xlink:href="#save" />
@@ -156,5 +151,32 @@
 
             </form>
         </div>
+        <script>
+            $(function() {
+                var $avatarImage, $avatarInput, $avatarForm;
+                $avatarImage = $('#avatarImage');
+                $avatarInput = $('#avatarInput');
+                $avatarForm = $('#avatarForm');
+                $avatarImage.on('click', function() {
+                    $avatarInput.click();
+                });
+                $avatarInput.on('change', function() {
+                    var formData = new FormData();
+                    formData.append('photo', $avatarInput[0].files[0]);
+                    $.ajax({
+                        url: $avatarForm.attr('action') + '?' + $avatarForm.serialize(),
+                        method: $avatarForm.attr('method'),
+                        data: formData,
+                        processData: false,
+                        contentType: false
+                    }).done(function(data) {
+                        if (data.success)
+                            $avatarImage.attr('src', data.path);
+                    }).fail(function() {
+                        alert('Natog`ri formatida.');
+                    });
+                });
+            });
+        </script>
     </div>
 @endsection

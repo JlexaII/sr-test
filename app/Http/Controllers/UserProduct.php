@@ -9,15 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class UserProduct extends Controller
 {
-    public function create()
-    {
+    public function create() {
         $id = Auth::id();
         $product = Product::where('active', '1')->where('user_id', $id)->Paginate(15);
         return view('auth.inc.mahsulot', ['product' => $product]);
     }
 
-    public function addproduct(ProductStoreRequest $product)
-    {
+    public function addproduct(ProductStoreRequest $product) {
         $data = $product->validated();
         $path = $product->file('image')->store('uploads', 'public');
         $data['image'] = $path;
@@ -28,8 +26,7 @@ class UserProduct extends Controller
         return redirect()->route('mahsulot')->with('product', $product);
     }
 
-    public function proddelete($id)
-    {
+    public function proddelete($id) {
         $product = Product::find($id);
         $product->active = '0';
         $product->save();
@@ -37,14 +34,12 @@ class UserProduct extends Controller
         return redirect()->route('mahsulot')->with('product', $product);
     }
 
-    public function prodedit($id)
-    {
+    public function prodedit($id) {
         $product = new Product;
         return view('auth.inc.prodedit', ['data' => $product->find($id)]);
     }
 
-    public function prodeditSave($id, HttpRequest $req)
-    {
+    public function prodeditSave($id, HttpRequest $req) {   
         $product = Product::find($id);
         $product->soni = $req->input('soni');
         $product->price = $req->input('price');

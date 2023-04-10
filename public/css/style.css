@@ -52,10 +52,18 @@ html {
   transform: translate(1px, 4px);
 }
 
+.nav {
+  scroll-padding-top: 0;
+  padding-top: 0%;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .nav-item {
   font-family: Impact,
     'Bold',
     sans-serif;
+  color: #EC9704;
 }
 
 .nav-link {
@@ -65,10 +73,6 @@ html {
 #navbarSupportedContent li {
   font-size: 1.5em;
   padding: 2px 5px 1px;
-}
-
-.dropdown-menu a {
-  color: #EC9704;
 }
 
 .bi {

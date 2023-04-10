@@ -12,7 +12,10 @@ class Profile extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'cname'
+        'cname',
+        'account',
+        'adress',
+        'telefon'
     ];
 
 }

@@ -28,7 +28,7 @@
                 @yield('content')
             </div>
         </div>
-        <div class="p2 m-3">
+        <div class="p-2 m-3">
             @include('include.footer')
         </div>
         @include('include.turkums')

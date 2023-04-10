@@ -40,4 +40,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatarUrl()
+{
+    if ($this->photo_extension)
+        return asset('images/users/'.$this->id.'.'.$this->photo_extension);
+    return asset('images/users/default.jpg');
+}
 }
