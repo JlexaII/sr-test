@@ -70,6 +70,33 @@
             </form>
             <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="20%">
         </div>
+        <script>
+            $(function() {
+                var $avatarImage, $avatarInput, $avatarForm;
+                $avatarImage = $('#avatarImage');
+                $avatarInput = $('#avatarInput');
+                $avatarForm = $('#avatarForm');
+                $avatarImage.on('click', function() {
+                    $avatarInput.click();
+                });
+                $avatarInput.on('change', function() {
+                    var formData = new FormData();
+                    formData.append('photo', $avatarInput[0].files[0]);
+                    $.ajax({
+                        url: $avatarForm.attr('action') + '?' + $avatarForm.serialize(),
+                        method: $avatarForm.attr('method'),
+                        data: formData,
+                        processData: false,
+                        contentType: false
+                    }).done(function(data) {
+                        if (data.success)
+                            $avatarImage.attr('src', data.path);
+                    }).fail(function() {
+                        alert('Natog`ri formatida.');
+                    });
+                });
+            });
+        </script>
 
         <hr>
         <div class="col-8 p-2 mt-2 text-center">
@@ -151,32 +178,6 @@
 
             </form>
         </div>
-        <script>
-            $(function() {
-                var $avatarImage, $avatarInput, $avatarForm;
-                $avatarImage = $('#avatarImage');
-                $avatarInput = $('#avatarInput');
-                $avatarForm = $('#avatarForm');
-                $avatarImage.on('click', function() {
-                    $avatarInput.click();
-                });
-                $avatarInput.on('change', function() {
-                    var formData = new FormData();
-                    formData.append('photo', $avatarInput[0].files[0]);
-                    $.ajax({
-                        url: $avatarForm.attr('action') + '?' + $avatarForm.serialize(),
-                        method: $avatarForm.attr('method'),
-                        data: formData,
-                        processData: false,
-                        contentType: false
-                    }).done(function(data) {
-                        if (data.success)
-                            $avatarImage.attr('src', data.path);
-                    }).fail(function() {
-                        alert('Natog`ri formatida.');
-                    });
-                });
-            });
-        </script>
+        
     </div>
 @endsection

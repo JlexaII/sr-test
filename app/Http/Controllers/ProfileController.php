@@ -21,8 +21,7 @@ class ProfileController extends Controller
         return view('auth.inc.profil', ['profile' => $profile]);
     }
 
-    public function updatePhoto(Request $request) {
-        dd($request->all());
+    public function updatePhoto(Request $request) {        
         $this->validate($request, [
             'photo' => 'required|image'
         ]);
