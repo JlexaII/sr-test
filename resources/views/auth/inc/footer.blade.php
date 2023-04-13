@@ -5,7 +5,7 @@
             <a href="/kabinet" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="3" height="4"><img src="/images/SR.svg" width="50" height="50" /></svg>
             </a>
-            <span class="mb-3 mb-md-0 text-black">&copy; 2023 Silks Roads, Axmedov's Ltd</span>
+            <span class="mb-3 mb-md-0 text-black">&copy; 2023 {{ Auth()->user()->email }} Ltd.</span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
