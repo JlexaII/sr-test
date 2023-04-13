@@ -1,6 +1,6 @@
 @section('footer')
 
-    <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top border border-info d-none d-md-flex d-xl-flex">
+    <footer class="align-items-center py-3 my-4 border-top border border-info d-none d-md-flex d-xl-flex">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/kabinet" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="3" height="4"><img src="/images/SR.svg" width="50" height="50" /></svg>

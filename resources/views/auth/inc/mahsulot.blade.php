@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" required autofocus class="form-control {{ $errors->has('soni') }}"
+                            <input type="text" value="{{ old('soni') }}" required autofocus class="form-control {{ $errors->has('soni') }}"
                                 id="soni" placeholder="mahsulot soni" name="soni">
                             @error('soni')
                                 <p class="text-danger">{{ $message }}</p>
@@ -118,7 +118,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" required autofocus class="form-control {{ $errors->has('price') }}"
+                            <input type="text" value="{{ old('price') }}" required autofocus class="form-control {{ $errors->has('price') }}"
                                 id="price" placeholder="Narxi" name="price">
                             @error('price')
                                 <p class="text-danger">{{ $message }}</p>
@@ -128,7 +128,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" required autofocus class="form-control {{ $errors->has('artikul') }}"
+                            <input type="text" value="{{ old('artikul') }}" required autofocus class="form-control {{ $errors->has('artikul') }}"
                                 id="artikul" placeholder="Unikal raqam" name="artikul">
                             @error('artikul')
                                 <p class="text-danger">{{ $message }}</p>
@@ -138,7 +138,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" required autofocus class="form-control" id="category_id"
+                            <input type="text" value="{{ old('category_id') }}" required autofocus class="form-control" id="category_id"
                                 placeholder="Unikal raqam" name="category_id">
                             @error('category_id')
                                 <p class="text-danger">{{ $message }}</p>
@@ -149,7 +149,7 @@
 
                         <div class="mb-3">
 
-                            <input type="text" required autofocus class="form-control" id="brand_id"
+                            <input type="text" value="{{ old('brand_id') }}" required autofocus class="form-control" id="brand_id"
                                 placeholder="Unikal raqam" name="brand_id">
                             @error('brand_id')
                                 <p class="text-danger">{{ $message }}</p>
