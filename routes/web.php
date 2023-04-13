@@ -10,8 +10,8 @@ use App\Http\Controllers\RgController;
 use App\Http\Controllers\RPController;
 use App\Http\Controllers\UserProduct;
 use App\Http\Controllers\VerifyEmailController;
+use App\Http\Controllers\ZakazController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Session\Middleware\StartSession;
 
 
 Route::get('/', function () {
@@ -73,9 +73,6 @@ Route::middleware('auth')->group(function () {
     Route::view('kabinet', 'auth.kabinet')->middleware('verified')
         ->name('kabinet');
 
-    Route::view('zakazlar', 'auth.inc.zakaz')->middleware('verified')
-        ->name('zakazlar');
-
     Route::get('/mahsulot', [UserProduct::class,'create'])->middleware('verified')->name('mahsulot');
 
     Route::post('/mahsulot', [UserProduct::class,'addproduct'])->middleware('verified');
@@ -98,15 +95,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/profile/{id}', [ProfileController::class, 'store'])->middleware('verified')->name('profileSave');
 
-
-
-    Route::view('oluvchi', 'auth.inc.oluvchi')->middleware('verified')
-        ->name('oluvchi');
-
     Route::get('/bozor', [BozorController::class, 'index'])->middleware('verified')->name('bozor');
 
-    Route::view('narxlar', 'auth.inc.narxlar')->middleware('verified')
-        ->name('narxlar');
+    Route::get('/zakaz', [ZakazController::class, 'index'])->middleware('verified')->name('zakazlar');
 
     Route::view('yordam', 'auth.inc.yordam')->middleware('verified')
         ->name('yordam');
@@ -117,6 +108,8 @@ Route::middleware('auth')->group(function () {
     Route::view('sozlama', 'auth.inc.sozlama')->middleware('verified')
         ->name('sozlama');
 
+    Route::view('tarifout', 'auth.inc.tarifout')->middleware('verified')
+        ->name('tarifout');
 });
 
 

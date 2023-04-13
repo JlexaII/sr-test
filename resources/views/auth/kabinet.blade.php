@@ -107,7 +107,7 @@
                                     <li>100 Mahsulot qo'shing</li>
                                     <li>Reklama umumiy</li>
                                     <li>E-pochta aloqasi</li>
-                                    <li> </li>
+                                    <br><br><br>
                                 </ul>
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary" disabled>Bepul</button>
                             </div>
@@ -128,6 +128,7 @@
                                     <li>Reklama mahsus</li>
                                     <li>Tez-tez yangiliklar bilish</li>
                                     <li>Telefon orqali yordam</li>
+                                    <br><br>
                                 </ul>
                                 <button type="button" class="w-100 btn btn-lg btn-warning" data-bs-toggle="modal"
                                     data-bs-target="#oplata250Modal">Boshlash</button>
@@ -151,6 +152,7 @@
                                     <li>Active reklama</li>
                                     <li>Tel. va @-pochta orqali yordam</li>
                                     <li>Yordam markaziga kirish</li>
+                                    <br><br>
                                 </ul>
                                 <button type="button" class="w-100 btn btn-lg btn-success" data-bs-toggle="modal"
                                     data-bs-target="#oplata750Modal">Boshlash</button>
@@ -167,7 +169,55 @@
                                     <svg class="bi" width="24" height="24">
                                         <use xlink:href="#money" />
                                     </svg>
-                                    1 200 000<small class="text-muted fw-light">/yil</small>
+                                    900 000<small class="text-muted fw-light">/yil</small>
+                                </h3>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>1001-1500 mahsulot qo'shing</li>
+                                    <li>Active reklama</li>
+                                    <li>Tel. va @-pochta orqali yordam</li>
+                                    <li>Yordam markaziga kirish</li>
+                                    <li>Unikal sertifikat</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#oplata1200Modal">Biz bilan bog'lanish</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+                            <div class="card-header py-3 text-bg-secondary border-secondary">
+                                <h4 class="my-0 fw-normal">Korporaciya</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title pricing-card-title">
+                                    <svg class="bi" width="24" height="24">
+                                        <use xlink:href="#money" />
+                                    </svg>
+                                    1 250 000<small class="text-muted fw-light">/yil</small>
+                                </h3>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>1501-2000 mahsulot qo'shing</li>
+                                    <li>Active reklama</li>
+                                    <li>Tel. va @-pochta orqali yordam</li>
+                                    <li>Yordam markaziga kirish</li>
+                                    <li>Unikal sertifikat</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#oplata1250Modal">Biz bilan bog'lanish</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-danger">
+                            <div class="card-header py-3 text-bg-danger border-danger">
+                                <h4 class="my-0 fw-normal">V.I.P.</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title pricing-card-title">
+                                    <svg class="bi" width="24" height="24">
+                                        <use xlink:href="#money" />
+                                    </svg>
+                                    1 600 000<small class="text-muted fw-light">/yil</small>
                                 </h3>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>Cheksiz mahsulot qo'shing</li>
@@ -176,8 +226,8 @@
                                     <li>Yordam markaziga kirish</li>
                                     <li>Unikal sertifikat</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#oplata1200Modal">Biz bilan bog'lanish</button>
+                                <button type="button" class="w-100 btn btn-lg btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#oplata1600Modal">Biz bilan bog'lanish</button>
                             </div>
                         </div>
                     </div>
@@ -191,9 +241,9 @@
                             <tr>
                                 <th style="width: 34%;"></th>
                                 <th style="width: 22%;">Bepul</th>
-                                <th style="width: 22%;">Professional</th>
+                                <th style="width: 22%;">Pro</th>
                                 <th style="width: 22%;">Korxona</th>
-                                <th style="width: 22%;">Katta Korxona</th>
+                                <th style="width: 22%;">K.Korxona</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -353,7 +403,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal oplata 1 200 ming -->
+    <!-- Modal oplata 900 ming -->
     <div class="modal fade" id="oplata1200Modal" tabindex="-1" aria-labelledby="oplataModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -371,7 +421,63 @@
                     <br> INN: 305763162
 
                     <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Tarif Katta Karxona" bir yilga
-                    1 200 000 so'm o`tkazdik.
+                    900 000 so'm o`tkazdik.
+                    <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
+                </div>
+                <div class="modal-footer">
+                    <h4 class="text-primary">Bu plan bilan boshlash uchun Siz support@silksroads.uz xat jo'nating va biz Siz bilan bog'lanamiz.
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal oplata 1 250 ming -->
+    <div class="modal fade" id="oplata1250Modal" tabindex="-1" aria-labelledby="oplataModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary border-secondary">
+                    <h1 class="modal-title fs-5" id="oplata1250ModalLabel">Korporaciya tarifi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    1. Korxonalarga to`lov turi bank orqali pul o`tkazish bilan amalga oshadi.
+                    <br>
+                    <hr>
+                    <br> Bank nomi: Ipoteka Bank
+                    <br> MFO: 00364
+                    <br> Xisob raqam: 20208000800925388001
+                    <br> INN: 305763162
+
+                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Korporaciya Karxona" bir yilga
+                    1 250 000 so'm o`tkazdik.
+                    <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
+                </div>
+                <div class="modal-footer">
+                    <h4 class="text-primary">Bu plan bilan boshlash uchun Siz support@silksroads.uz xat jo'nating va biz Siz bilan bog'lanamiz.
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal oplata 1 600 ming -->
+    <div class="modal fade" id="oplata1600Modal" tabindex="-1" aria-labelledby="oplataModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-danger border-danger">
+                    <h1 class="modal-title fs-5" id="oplata1600ModalLabel">V.I.P. tarifi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    1. Korxonalarga to`lov turi bank orqali pul o`tkazish bilan amalga oshadi.
+                    <br>
+                    <hr>
+                    <br> Bank nomi: Ipoteka Bank
+                    <br> MFO: 00364
+                    <br> Xisob raqam: 20208000800925388001
+                    <br> INN: 305763162
+
+                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "V.I.P. Karxona" bir yilga
+                    1 600 000 so'm o`tkazdik.
                     <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
                 </div>
                 <div class="modal-footer">

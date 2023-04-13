@@ -29,7 +29,7 @@ class ProfileController extends Controller
         $extension = $file->getClientOriginalExtension();
         $fileName = auth()->id() . '.' . $extension;
         $path = public_path('images/users/' . $fileName);
-        image::make($file)->fit(1440, 1440)->save($path);
+        image::make($file)->fit(144, 144)->save($path);
         $user = auth()->user();
         $user->photo_extension = $extension;
         $saved = $user->save();

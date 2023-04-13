@@ -6,27 +6,38 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Models\Product;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Console\View\Components\Alert;
+use Illuminate\Support\Facades\DB;
 
 class UserProduct extends Controller
 {
-    public function create() {
+    public function create()
+    {
         $id = Auth::id();
         $product = Product::where('active', '1')->where('user_id', $id)->Paginate(15);
         return view('auth.inc.mahsulot', ['product' => $product]);
     }
 
     public function addproduct(ProductStoreRequest $product) {
+        $count = DB::table('products')->where('user_id', Auth::id())->count();
+        $user_count = Auth::user()->tarif;
         $data = $product->validated();
         $path = $product->file('image')->store('uploads', 'public');
         $data['image'] = $path;
-        $product = Product::create($data);
-
-        $id = Auth::id();
-        $product = Product::where('active', '1')->where('user_id', $id)->paginate(4);
+        $count = DB::table('products')->where('user_id', Auth::id())->count();
+        $user_count = Auth::user()->tarif;
+        if ($user_count > $count) {
+            $product = Product::create($data);
+        } else {
+            return redirect()->route('tarifout');
+        }
+        $product = Product::where('active', '1')->where('user_id', Auth::id())->paginate(4);
         return redirect()->route('mahsulot')->with('product', $product);
     }
 
-    public function proddelete($id) {
+    public function proddelete($id)
+    {
         $product = Product::find($id);
         $product->active = '0';
         $product->save();
@@ -34,18 +45,20 @@ class UserProduct extends Controller
         return redirect()->route('mahsulot')->with('product', $product);
     }
 
-    public function prodedit($id) {
+    public function prodedit($id)
+    {
         $product = new Product;
         return view('auth.inc.prodedit', ['data' => $product->find($id)]);
     }
 
-    public function prodeditSave($id, HttpRequest $req) {   
+    public function prodeditSave($id, HttpRequest $req)
+    {
         $product = Product::find($id);
         $product->soni = $req->input('soni');
         $product->price = $req->input('price');
         $product->old_price = $req->input('old_price');
         $product->save();
-        
+
         $id = Auth::id();
         $product = Product::where('active', '1')->where('user_id', $id)->paginate(4);
         return redirect()->route('mahsulot')->with('product', $product);

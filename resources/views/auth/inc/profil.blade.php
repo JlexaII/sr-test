@@ -71,7 +71,7 @@
             <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="20%">
         </div>
         <script>
-           
+
         </script>
 
         <hr>

@@ -52,17 +52,7 @@ html {
   transform: translate(1px, 4px);
 }
 
-.nav {
-  scroll-padding-top: 0;
-  padding-top: 0%;
-  width: 100%;
-  margin: 0 auto;
-}
-
 .nav-item {
-  font-family: Impact,
-    'Bold',
-    sans-serif;
   color: #EC9704;
 }
 
@@ -111,4 +101,17 @@ nav.navbar .dropdown:hover>.dropdown-menu {
 .offcanvas-body li:hover {
   background-color: #ec9704;
   color: aliceblue;
+}
+
+.zoom {
+    background-color: green;
+    transition: transform .2s;
+    /* Animation */
+    width: 30px;
+    height: 30px;
+}
+
+.zoom:hover {
+    transform: scale(5);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

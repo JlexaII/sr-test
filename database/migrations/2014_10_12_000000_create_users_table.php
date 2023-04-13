@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('photo_extension')->nullable();
+            $table->string('tarif')->nullable()->default('100');
             $table->rememberToken();
             $table->timestamps();
         });

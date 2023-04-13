@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('nameT', 50)->default('Name product');
             $table->decimal('sum', 10, 2, true)->default(0)->nullable();
             $table->string('news', 500)->default('text news');
-            $table->string('foto')->default('default.jpg');
+            $table->string('foto')->default()->nullable();
+            $table->string('active')->default()->nullable();
             $table->timestamps();
         });
     }
