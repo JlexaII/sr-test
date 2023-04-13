@@ -6,8 +6,7 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Models\Product;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use Illuminate\Console\View\Components\Alert;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
 
 class UserProduct extends Controller
@@ -23,8 +22,9 @@ class UserProduct extends Controller
         $count = DB::table('products')->where('user_id', Auth::id())->count();
         $user_count = Auth::user()->tarif;
         $data = $product->validated();
-        $path = $product->file('image')->store('uploads', 'public');
+        $path = $product->file('image')->store('storage/uploads', 'public');
         $data['image'] = $path;
+        image::make($product->file('image'))->fit(320, 320)->save($path);
         $count = DB::table('products')->where('user_id', Auth::id())->count();
         $user_count = Auth::user()->tarif;
         if ($user_count > $count) {
