@@ -48,8 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])
         ->name('logout');
 
-    Route::get('/email/verify', [EmailVerificationPromptController::class, '__invoke'])
-        ->name('verification.notice');
+
 
     Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
         ->middleware('signed')
@@ -58,17 +57,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, '__invoke'])
         ->name('verification.send');
 
-    Route::view('/home', 'home')->middleware('verified')
-        ->name('dashboard');
-
     Route::view('/profile', 'profile')
         ->middleware(['verified', 'password.confirm'])
         ->name('profile');
-
-    Route::get('/confirm-password', [PasswordConfirmationController::class, 'show'])
-        ->name('password.confirm');
-
-    Route::post('/confirm-password', [PasswordConfirmationController::class, 'store']);
 
     Route::view('kabinet', 'auth.kabinet')->middleware('verified')
         ->name('kabinet');
@@ -98,6 +89,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/bozor', [BozorController::class, 'index'])->middleware('verified')->name('bozor');
 
     Route::get('/zakaz', [ZakazController::class, 'index'])->middleware('verified')->name('zakazlar');
+
+    Route::get('/category', [ZakazController::class, 'category'])->middleware('verified')->name('category');
+
+    Route::get('/brand', [ZakazController::class, 'brand'])->middleware('verified')->name('brand');
+
+    Route::view('/avatar', 'auth.inc.avatar')->middleware('verified')->name('avatar');
 
     Route::view('yordam', 'auth.inc.yordam')->middleware('verified')
         ->name('yordam');

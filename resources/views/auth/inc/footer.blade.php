@@ -23,7 +23,7 @@
 
     <!-- Menyu telefonlari uchun-->
 
-    <footer class="d-md-none d-md-block sticky-bottom d-flex justify-content-center"">
+    <footer class="d-md-none d-md-block sticky-bottom d-flex justify-content-center">
         <ul class="list-group list-group-horizontal">
             <li class="list-group-item border bg-white text-center rounded-start">
                 <a href="/kabinet" class="nav-link" aria-current="page">

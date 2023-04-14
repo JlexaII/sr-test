@@ -73,7 +73,7 @@
         </svg>
 
         <div class="container py-3">
-            <header>
+            <header style="font-family: Times New Roman;">
                 <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
                     <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
                         <img src="images/logo.png" alt="Silks Roads" width="25%">
@@ -162,7 +162,7 @@
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm border-primary">
                             <div class="card-header py-3 text-bg-primary border-primary">
-                                <h4 class="my-0 fw-normal">Katta Korxona</h4>
+                                <h4 class="my-0 fw-normal">Kompaniya</h4>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title pricing-card-title">
@@ -408,7 +408,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-bg-primary border-primary">
-                    <h1 class="modal-title fs-5" id="oplata1200ModalLabel">Katta Karxona tarifi</h1>
+                    <h1 class="modal-title fs-5" id="oplata1200ModalLabel">Kompaniya tarifi</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -420,7 +420,7 @@
                     <br> Xisob raqam: 20208000800925388001
                     <br> INN: 305763162
 
-                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Tarif Katta Karxona" bir yilga
+                    <br> To`lov xaqida ma`lumot: Biz www.silksroads.uz orqali sotib olish uchun "Tarif Kompaniya" bir yilga
                     900 000 so'm o`tkazdik.
                     <p></p> <br> 2. Individual tadbirkorlaga "Uzum" mobil ilovasi orqali pul o'tkazish imkoni mavjud
                 </div>

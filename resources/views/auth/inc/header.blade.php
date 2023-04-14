@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <h5 class="border border-success">
+        <h5>
             Tarif:
             @if (auth()->user()->tarif < 101)
                 Bepul
@@ -9,7 +9,7 @@
             @elseif (auth()->user()->tarif < 1001)
                 <h5 class="text-success">"Korxona"</h5>
             @elseif(auth()->user()->tarif < 1501)
-                <h5 class="text-primary">"Katta Korxona"</h5>
+                <h5 class="text-primary">"Kompaniya"</h5>
             @elseif (auth()->user()->tarif < 2001)
                 <h5 class="text-secondary">"Korporaciya"</h5>
             @elseif(auth()->user()->tarif > 2001)
@@ -25,13 +25,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <strong>{{ auth()->user()->email }}</strong>
+                        <strong title="{{ auth()->user()->email }}">{{ Str::limit(auth()->user()->email, 8) }}</strong>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item nav-link" href="{{ route('sozlama') }}">
-                                <i class="fa-solid fa-cog fa-spin"></i>
-                                Sozlama
+                            <a class="dropdown-item nav-link" href="{{ route('avatar') }}">
+                                <i class="fa fa-image" aria-hidden="true"></i>
+                                Avatar
                             </a>
                         </li>
                         <li>
@@ -43,6 +43,18 @@
                             </form>
                         </li>
                         <li>
+                            <a class="dropdown-item nav-link" href="{{ route('sozlama') }}">
+                                <i class="fa-solid fa-cog fa-spin"></i>
+                                Sozlama
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item nav-link" href="{{ route('cat-brend') }}">
+                                <i class="fa-solid fa-cog fa-spin"></i>
+                                Kategoriya va Brend
+                            </a>
+                        </li>
+                        <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item nav-link" href="/">
@@ -50,9 +62,9 @@
                                 Chiqish</a></li>
                     </ul>
                 </li>
-                <li class="nav-link"><a href="{{ route('bozor') }}" class="nav-link">Bozor</a></li>
-                <li class="nav-link"><a href="{{ route('yordam') }}" class="nav-link">Yordam</a></li>
-                <li class="nav-link"><a href="{{ route('komp') }}" class="nav-link">Kompaniya</a></li>
+                <li><a href="{{ route('bozor') }}" class="nav-link">Bozor</a></li>
+                <li><a href="{{ route('yordam') }}" class="nav-link">Yordam</a></li>
+                <li><a href="{{ route('komp') }}" class="nav-link">Kompaniya</a></li>
             </ul>
         </div>
     </div>

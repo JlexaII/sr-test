@@ -60,100 +60,94 @@
         </symbol>
 
     </svg>
-    <div class="row container">
-        <div class="p-2 mt-2 text-center">
-            <h1>Profil qismi</h1>
+    <div class="container">
+        <div class="row">
+            <div class="p-2 mt-2 border border-success col-3">
+                <h1>Profil qismi</h1>
+            </div>
+            <div class="col-4 p-3">
+                <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage">
+            </div>
 
-            <form action="{{ url('profile/foto') }}" method="post" style="display: none" id="avatarForm">
-                @csrf
-                <input type="file" id="avatarInput" name="photo">
-            </form>
-            <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="20%">
+            <div class="col-8 p-2 mt-2 text-center border border-warning">
+                <form action="{{ route('profileSave', $profile->id) }}" method="post">
+                    @csrf
+                    <div class="input-group mb-3">
+                        <svg class="bi mt-2" width="24" height="24">
+                            <use xlink:href="#cname" />
+                        </svg>
+                        <input type="text" class="form-control" placeholder="Kompaniya nomi"
+                            value="{{ $profile->cname }}" name="cname">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <svg class="bi mt-2" width="24" height="24">
+                            <use xlink:href="#adress" />
+                        </svg>
+                        <input type="text" class="form-control" placeholder="Tashkilotni adressi"
+                            value="{{ $profile->adress }}" name="adress">
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <svg class="bi mt-2" width="24" height="24">
+                                <use xlink:href="#tel" />
+                            </svg>
+                            <span class="input-group-text">+</span>
+                            <input type="text" class="form-control" placeholder="Telefon raqami"
+                                value="{{ $profile->telefon }}" name="telefon">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <svg class="bi mt-2" width="24" height="24">
+                                <use xlink:href="#env" />
+                            </svg>
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" disabled value="{{ request()->user()->email }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <svg class="bi mt-2" width="24" height="24">
+                                <use xlink:href="#bank" />
+                            </svg>
+                            <input type="text" class="form-control" placeholder="Bank nomi" value="{{ $profile->bank }}"
+                                name="bank">
+                            <input type="text" class="form-control" placeholder="Xisob raqam"
+                                value="{{ $profile->account }}" name="account">
+                            <input type="text" class="form-control" placeholder="MFO" value="{{ $profile->mfo }}"
+                                name="mfo">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <svg class="bi mt-2" width="24" height="24">
+                                <use xlink:href="#UA" />
+                            </svg>
+                            <input type="text" class="form-control" placeholder="INN" value="{{ $profile->inn }}"
+                                name="inn">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <svg class="bi mt-2" width="24" height="24">
+                                <use xlink:href="#social" />
+                            </svg>
+                            <input type="text" class="form-control" placeholder="Ijtimoiy tarmoqlar"
+                                value="{{ $profile->social }}" name="social">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <button type="submit" class="bi btn btn-success"><svg class="bi mt-2" width="24"
+                                height="24">
+                                <use xlink:href="#save" />
+                            </svg> Saqlab qo`yish</button>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <p></p>
         </div>
-        <script>
-
-        </script>
-
-        <hr>
-        <div class="col-8 p-2 mt-2 text-center">
-            <form action="{{ route('profileSave', $profile->id) }}" method="post">
-                @csrf
-
-                <div class="input-group mb-3">
-                    <svg class="bi mt-2" width="24" height="24">
-                        <use xlink:href="#cname" />
-                    </svg>
-                    <input type="text" class="form-control" placeholder="Kompaniya nomi" value="{{ $profile->cname }}"
-                        name="cname">
-                </div>
-
-                <div class="input-group mb-3">
-                    <svg class="bi mt-2" width="24" height="24">
-                        <use xlink:href="#adress" />
-                    </svg>
-                    <input type="text" class="form-control" placeholder="Tashkilotni adressi"
-                        value="{{ $profile->adress }}" name="adress">
-                </div>
-                <div class="mb-3">
-                    <div class="input-group">
-                        <svg class="bi mt-2" width="24" height="24">
-                            <use xlink:href="#tel" />
-                        </svg>
-                        <span class="input-group-text">+</span>
-                        <input type="text" class="form-control" placeholder="Telefon raqami"
-                            value="{{ $profile->telefon }}" name="telefon">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="input-group">
-                        <svg class="bi mt-2" width="24" height="24">
-                            <use xlink:href="#env" />
-                        </svg>
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" disabled value="{{ request()->user()->email }}">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="input-group">
-                        <svg class="bi mt-2" width="24" height="24">
-                            <use xlink:href="#bank" />
-                        </svg>
-                        <input type="text" class="form-control" placeholder="Bank nomi" value="{{ $profile->bank }}"
-                            name="bank">
-                        <input type="text" class="form-control" placeholder="Xisob raqam"
-                            value="{{ $profile->account }}" name="account">
-                        <input type="text" class="form-control" placeholder="MFO" value="{{ $profile->mfo }}"
-                            name="mfo">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="input-group">
-                        <svg class="bi mt-2" width="24" height="24">
-                            <use xlink:href="#UA" />
-                        </svg>
-                        <input type="text" class="form-control" placeholder="INN" value="{{ $profile->inn }}"
-                            name="inn">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="input-group">
-                        <svg class="bi mt-2" width="24" height="24">
-                            <use xlink:href="#social" />
-                        </svg>
-                        <input type="text" class="form-control" placeholder="Ijtimoiy tarmoqlar"
-                            value="{{ $profile->social }}" name="social">
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <button type="submit" class="bi btn btn-success"><svg class="bi mt-2" width="24"
-                            height="24">
-                            <use xlink:href="#save" />
-                        </svg> Saqlab qo`yish</button>
-                </div>
-
-            </form>
-        </div>
-
     </div>
 @endsection

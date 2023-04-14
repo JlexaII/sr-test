@@ -8,10 +8,13 @@
     <!-- Bosh sahifa kodi -->
     <div class="container">
         <main class="flex-shrink-0">
-            <h1 class="mt-1">Mahsulotlar ro`yhati<a href="javascript:void(0)" class="btn btn-primary" style="float: right;"
+            <h1 class="mt-1">Mahsulotlar ro`yhati
+                <a href="javascript:void(0)" class="btn btn-primary" style="float: right;"
                     data-bs-toggle="modal" data-bs-target="#add-product-modal" title="Mahsulot qo`shish">
+                        @error('image')
+                            <span class="text-warning">Rasm 128Kb katta. Qaytadtan tanlang rasm</span>
+                        @enderror
                     <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-
                 <!-- Izlash uchun -->
                 <div class="input-group">
                     <div class="form-outline">
@@ -23,8 +26,8 @@
                         <i class="fas fa-search"></i>
                     </button>
                     </form>
-                </div>
-            </h1>
+                </div></h1>
+
             <div class="table-responsive">
                 <table class="table table-hover table-bordered" id="projects-table">
                     <thead>
@@ -73,6 +76,10 @@
                     </tbody>
                 </table>
             </div>
+            <div>
+               <span class="text-white bg-warning p-2">Tarif boyicha Ball: {{ auth()->user()->tarif }} Ishlatingiz: {{ $product->total() }}
+                Qoldiq: {{ intval(auth()->user()->tarif) - intval($product->total()) }} </span>
+            </div>
             {{ $product->onEachSide(0)->links() }}
         </main>
     </div>
@@ -108,8 +115,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" value="{{ old('soni') }}" required autofocus class="form-control {{ $errors->has('soni') }}"
-                                id="soni" placeholder="mahsulot soni" name="soni">
+                            <input type="text" value="{{ old('soni') }}" required autofocus
+                                class="form-control {{ $errors->has('soni') }}" id="soni" placeholder="mahsulot soni"
+                                name="soni">
                             @error('soni')
                                 <p class="text-danger">{{ $message }}</p>
                             @else
@@ -118,8 +126,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" value="{{ old('price') }}" required autofocus class="form-control {{ $errors->has('price') }}"
-                                id="price" placeholder="Narxi" name="price">
+                            <input type="text" value="{{ old('price') }}" required autofocus
+                                class="form-control {{ $errors->has('price') }}" id="price" placeholder="Narxi"
+                                name="price">
                             @error('price')
                                 <p class="text-danger">{{ $message }}</p>
                             @else
@@ -128,8 +137,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" value="{{ old('artikul') }}" required autofocus class="form-control {{ $errors->has('artikul') }}"
-                                id="artikul" placeholder="Unikal raqam" name="artikul">
+                            <input type="text" value="{{ old('artikul') }}" required autofocus
+                                class="form-control {{ $errors->has('artikul') }}" id="artikul"
+                                placeholder="Unikal raqam" name="artikul">
                             @error('artikul')
                                 <p class="text-danger">{{ $message }}</p>
                             @else
@@ -138,8 +148,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" value="{{ old('category_id') }}" required autofocus class="form-control" id="category_id"
-                                placeholder="Unikal raqam" name="category_id">
+                            <input type="text" value="{{ old('category_id') }}" required autofocus
+                                class="form-control" id="category_id" placeholder="Unikal raqam" name="category_id">
                             @error('category_id')
                                 <p class="text-danger">{{ $message }}</p>
                             @else
@@ -149,8 +159,8 @@
 
                         <div class="mb-3">
 
-                            <input type="text" value="{{ old('brand_id') }}" required autofocus class="form-control" id="brand_id"
-                                placeholder="Unikal raqam" name="brand_id">
+                            <input type="text" value="{{ old('brand_id') }}" required autofocus class="form-control"
+                                id="brand_id" placeholder="Unikal raqam" name="brand_id">
                             @error('brand_id')
                                 <p class="text-danger">{{ $message }}</p>
                             @else
@@ -161,7 +171,11 @@
                         <div class="mb-3">
                             <input type="file" required class="form-control" id="rasm" placeholder="Rasm"
                                 name="image">
-                            <label for="rasm" class="form-label text-success">Rasm tanlang</label>
+                            @error('image')
+                                <p class="text-danger">{{ $message }}</p>
+                            @else
+                                <label for="image" class="form-label text-success">Brend</label>
+                            @enderror
                         </div>
                     </div>
                     <!-- Modal footer -->

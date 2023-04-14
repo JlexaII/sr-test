@@ -28,16 +28,16 @@
         </footer>
 
         <!-- Menyu telefonlari uchun-->
-        <footer class="d-md-none d-md-block bg-info-subtle text-center fixed-bottom">
+        <footer class="d-md-none d-md-block d-flex justify-content-center fixed-bottom">
             <div class="btn-group me-2" role="group" aria-label="Basic example">
-                <button type="button" class="btn" onclick="isAsosiy()"><i class="fa-solid fa-house fa-1x"></i>
+                <button type="button" class="btn bg-info bg-opacity-75" onclick="isAsosiy()"><i class="fa-solid fa-house fa-1x"></i>
                     <h6 class="text center">Asosiy</h6>
                 </button>
-                <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
                     aria-controls="offcanvasScrolling"><i class="fa fa-bars fa-1x"></i>
                     <h6 class="text center">Turkum</h6>
                 </button>
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#SBasket"><i
+                <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="modal" data-bs-target="#SBasket"><i
                         class="fa-solid fa-cart-shopping fa-1x"></i>
                     <h6 class="text center basket">Savat</h6>
                 </button>
@@ -45,7 +45,7 @@
                     @auth
                         <div class="dropup-center dropup">
                             @if (request()->user()->hasVerifiedEmail())
-                                <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn bg-success bg-opacity-75" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-user fa-1x"></i>
                                     <h6 class="text center">Profil</h6>
                                 </button>
@@ -65,13 +65,13 @@
                             @csrf
 
                             <div>
-                                <button type="submit" class="flex text-danger dropdown-item">Xatni
-                                    takroran jo`natish</button>
+                                <button type="submit" class="flex text-white dropdown-item bg-danger bg-opacity-75">Xatni
+                                   <br> takroran <br> jo`natish</button>
                             </div>
                         </form>
                     @endif
                 @else
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalK">
+                    <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="modal" data-bs-target="#ModalK">
                         <i class="fa-solid fa-user fa-1x"></i>
                         <h6 class="text center">Profil</h6>
                     </button>

@@ -18,7 +18,7 @@
                             <th scope="col">Soni</th>
                             <th scope="col">Narxi</th>
                             <th scope="col">Eski narx</th>
-                            <th scope="col">Eslab</th>
+                            <th scope="col">Sahla</th>
                         </tr>
                     </thead>
                     <tbody>

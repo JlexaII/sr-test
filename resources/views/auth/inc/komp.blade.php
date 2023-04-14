@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h3 class="p-5 text-decoration-none">
+    <h3 class="p-5 text-decoration-none" style="font-family: Times New Roman;">
         <br>
         <hr>
         <p class="text-center fw-bold">Kompaniya tashkil topganiga 5 yil bo`ldi. Kompaniyani maqsadi tadbirkorlarga onlayin

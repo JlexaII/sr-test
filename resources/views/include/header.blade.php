@@ -50,19 +50,19 @@
                                             data-bs-auto-close="true" aria-expanded="false"><i class="fa fa-user"></i></a>
                                         <ul class="dropdown-menu">
                                             @if (request()->user()->hasVerifiedEmail())
-                                                <li><a class="dropdown-item" href="{{ route('kabinet') }}">Kabinet</a></li>
-                                                <li><a class="dropdown-item" href="#">Zakazlar</a></li>
+                                                <li><a class="dropdown-item nav-link" href="{{ route('kabinet') }}">Kabinet</a>
+                                                </li>
+                                                <li><a class="dropdown-item nav-link" href="#">Zakazlar</a></li>
                                                 <form action="{{ route('logout') }}" method="post">
                                                     @csrf
-                                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                                    <li><a class="dropdown-item nav-link" href="{{ route('logout') }}"
                                                             onclick="event.preventDefault(); this.closest('form').submit();">Chiqish</a>
                                                     </li>
                                                 </form>
                                             @else
-                                                <form action="{{ route('verification.send') }}" method="post" 
+                                                <form action="{{ route('verification.send') }}" method="post"
                                                     autocomplete="off">
                                                     @csrf
-
                                                     <div>
                                                         <button type="submit" class="flex text-danger dropdown-item">Xatni
                                                             takroran jo`natish</button>
@@ -82,12 +82,15 @@
                             @endauth
                         @endif
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Mahsulot qidirish" aria-label="Search">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
+                    <div class="d6">
+                        <form>
+                            <input type="text" placeholder="Mahsulot qidirish">
+                            <button type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </nav>

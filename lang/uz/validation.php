@@ -89,7 +89,7 @@ return [
     'mac_address' => 'The :attribute field must be a valid MAC address.',
     'max' => [
         'array' => 'The :attribute field must not have more than :max items.',
-        'file' => 'The :attribute field must not be greater than :max kilobytes.',
+        'file' => 'Bu :attribute maydoni :max kilobaytdan katta bo`lmasligi kerak.',
         'numeric' => 'The :attribute field must not be greater than :max.',
         'string' => 'The :attribute field must not be greater than :max characters.',
     ],
@@ -140,7 +140,7 @@ return [
         'file' => 'The :attribute field must be :size kilobytes.',
         'numeric' => 'The :attribute field must be :size.',
         'string' => ':attribute maydoni :size belgilar bo`lishi kerak.',
-    ], 
+    ],
     'starts_with' => 'The :attribute field must start with one of the following: :values.',
     'string' => 'The :attribute field must be a string.',
     'timezone' => 'The :attribute field must be a valid timezone.',
@@ -150,7 +150,7 @@ return [
     'url' => 'The :attribute field must be a valid URL.',
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
-    
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -185,7 +185,8 @@ return [
         'price' => 'Narx',
         'name' => 'nom',
         'brand_id' => 'firma nomi',
-        'category_id' => 'turkum'
+        'category_id' => 'turkum',
+        'image' => 'rasm'
     ],
 
 ];
