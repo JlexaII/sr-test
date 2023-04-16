@@ -62,11 +62,11 @@
     </svg>
     <div class="container">
         <div class="row">
-            <div class="p-2 mt-2 border border-success col-3">
-                <h1>Profil qismi</h1>
+            <div class="p-2 mt-2 col-2">
+                <h5>Profil qismi</h5>
             </div>
             <div class="col-4 p-3">
-                <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage">
+                <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="30%">
             </div>
 
             <div class="col-8 p-2 mt-2 text-center border border-warning">

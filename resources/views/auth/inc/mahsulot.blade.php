@@ -174,7 +174,7 @@
                             @error('image')
                                 <p class="text-danger">{{ $message }}</p>
                             @else
-                                <label for="image" class="form-label text-success">Brend</label>
+                                <label for="image" class="form-label text-success">Rasm</label>
                             @enderror
                         </div>
                     </div>

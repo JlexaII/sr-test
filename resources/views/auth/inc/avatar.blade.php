@@ -70,10 +70,17 @@
         </form>
         <a type="image" class="position-relative">
             <img src="{{ auth()->user()->getAvatarUrl() }}" id="avatarImage" width="20%"
-            class="border border-success rounded float-left bg-image hover-zoom"> <span
+                class="border border-success rounded float-left bg-image hover-zoom"> <span
                 class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span
                     class="visually-hidden">unread messages</span></span>
         </a>
         <br>
+    </div>
+    <div class="rounded-end text-center">
+        @error('photo')
+            <p class="text-danger">{{ $message }}</p>
+        @else
+            <label for="photo" class="form-label text-success">Rasmga bosing</label>
+        @enderror
     </div>
 @endsection

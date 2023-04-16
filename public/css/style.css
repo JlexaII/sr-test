@@ -117,9 +117,6 @@ nav.navbar .dropdown:hover>.dropdown-menu {
 }
 
 /* Chiqib keladigan izlash menyusi */
-.d6 {
-    background: #B46381;
-}
 
 .d6 form {
     height: 42px;
@@ -147,19 +144,13 @@ nav.navbar .dropdown:hover>.dropdown-menu {
 }
 
 .d6 button {
-    background: #683B4D;
+    background: #ec9704;
     border: none;
     height: 42px;
     width: 42px;
     position: absolute;
-    top: 0;
+    top: 1;
     right: 0;
     cursor: pointer;
 }
 
-.d6 button:before {
-    content: "\f002";
-    font-family: FontAwesome;
-    font-size: 16px;
-    color: #F9F0DA;
-}

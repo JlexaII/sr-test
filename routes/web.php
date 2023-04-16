@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\BozorController;
 use App\Http\Controllers\EmailVerificationNotificationController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -48,8 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])
         ->name('logout');
 
-
-
     Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
         ->middleware('signed')
         ->name('verification.verify');
@@ -90,9 +87,20 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/zakaz', [ZakazController::class, 'index'])->middleware('verified')->name('zakazlar');
 
+    Route::get('cat-brend', [ZakazController::class, 'savat'])->middleware('verified')
+    ->name('cat-brend');
+
     Route::get('/category', [ZakazController::class, 'category'])->middleware('verified')->name('category');
 
+    Route::post('/category', [ZakazController::class, 'store'])->middleware('verified');
+
+    Route::post('/category/{id}', [ZakazController::class, 'del'])->middleware('verified')->name('delete_cat');
+
     Route::get('/brand', [ZakazController::class, 'brand'])->middleware('verified')->name('brand');
+
+    Route::post('/brand', [ZakazController::class, 'create'])->middleware('verified');
+
+    Route::post('/brand/{id}', [ZakazController::class, 'del2'])->middleware('verified')->name('delete_brand');
 
     Route::view('/avatar', 'auth.inc.avatar')->middleware('verified')->name('avatar');
 

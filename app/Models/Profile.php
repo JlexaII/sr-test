@@ -17,5 +17,10 @@ class Profile extends Model
         'adress',
         'telefon'
     ];
-
+    public function getAvatarUrl()
+    {
+        if ($this->photo_extension)
+            return asset('images/users/' . $this->id . '.' . $this->photo_extension);
+        return asset('images/users/default.jpg');
+    }
 }

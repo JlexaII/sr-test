@@ -25,6 +25,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ auth()->user()->getAvatarUrl() }}" width="10%">
                         <strong title="{{ auth()->user()->email }}">{{ Str::limit(auth()->user()->email, 8) }}</strong>
                     </a>
                     <ul class="dropdown-menu">

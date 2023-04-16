@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('soni', 50);
             $table->decimal('price', 10, 2, true)->default(0)->nullable();
             $table->decimal('old_price', 10, 2, true)->default(0)->nullable();
-            $table->string('artikul', 50);            
-            $table->string('image', 250)->default();
+            $table->string('artikul', 50);
+            $table->string('image', 250)->default(0);
             $table->string('active',1);
             $table->string('hit');
             $table->timestamps();
