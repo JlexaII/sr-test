@@ -33,7 +33,19 @@
                 <tr>
                     <th>{{ $item->id }}</th>
                     <td>{{ Str::limit($item->name, 12) }}</td>
-                    <td>{{ $item->parent_id }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+
+                            </button>
+                            <ul class="dropdown-menu">
+                                @foreach ($childs->where('parent_id', $item->id) as $second)
+                                    <li>{{ $second->name }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </td>
                     <td>{{ Str::limit($item->content, 15) }}</td>
                     <td>
                         <form action="{{ route('delete_cat', $item->id) }}" method="post">
@@ -47,7 +59,6 @@
             @endforeach
         </tbody>
     </table>
-    {{ $data_cat->onEachSide(0)->links() }}
 
     <!-- Modal oyna kategoriya qo'shish -->
     <div class="modal" id="add-product-modal">

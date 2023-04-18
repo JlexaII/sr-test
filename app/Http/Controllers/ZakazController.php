@@ -21,8 +21,12 @@ class ZakazController extends Controller
 
     public function category()
     {
-        $category = Category::paginate(15);
-        return view('auth.inc.category', ['data_cat' => $category]);
+        $categories = Category::whereNull('parent_id')->get();
+        $categories_with_childern = Category::with('children')->whereNotNull('parent_id')->get();
+        return view('auth.inc.category', [
+            'data_cat' => $categories,
+            'childs' => $categories_with_childern
+        ]);
     }
 
     public function store(Request $category)
@@ -44,7 +48,7 @@ class ZakazController extends Controller
 
     public function brand()
     {
-        $brand = Brand::get();
+        $brand = Brand::paginate(25);
         return view('auth.inc.brand', ['data_brand' => $brand]);
     }
 
@@ -58,7 +62,7 @@ class ZakazController extends Controller
         Image::make($brand->file('image'))->fit(120,120);
         $path = $brand->file('image')->store('images/brand', 'public');
         $data['image'] = $path;
-        $brand = Brand::create($data)->paginate(15);
+        $brand = Brand::create($data)->paginate(25);
         return redirect()->route('brand')->with('data_cat', $brand);
     }
 
@@ -70,9 +74,13 @@ class ZakazController extends Controller
 
     public function savat()
     {
-        $brand = Brand::get();
-        $category = Category::get();
-
-        return view('auth.inc.cat-brend', ['data_1' => $category, 'data_2' => $brand]);
+        $brand = Brand::paginate(25);
+        $categories = Category::whereNull('parent_id')->get();
+        $categories_with_childern = Category::with('children')->whereNotNull('parent_id')->get();
+        return view('auth.inc.cat-brend', [
+            'data_1' => $categories,
+            'data_2' => $brand,
+            'data_children' =>$categories_with_childern
+        ]);
     }
 }

@@ -30,17 +30,21 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown d-none d-md-block">
-                            <a class="nav-link" href="#" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Turkum</a>
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                Turkum
+                            </a>
                         </li>
                         <li class="nav-item d-md-block">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SHeart"><i
-                                    class="fa fa-heart heart-p"></i></a>
+                                    class="fa fa-heart heart-p"></i>
+                            </a>
                         </li>
                         <li class="nav-item d-none d-md-block">
                             <a class="nav-link basket" data-bs-toggle="modal" data-bs-target="#SBasket" href="#"><i
-                                    class="fa fa-shopping-cart"></i></a>
+                                    class="fa fa-shopping-cart"></i>
+                            </a>
                         </li>
                         @if (Route::has('login'))
                             @auth
@@ -94,3 +98,29 @@
             </div>
         </nav>
     </header>
+    <div class="collapse fixed-top mt-5 bg-white rounded p-3" id="collapseExample">
+        {{-- <div class="card card-text">
+            @foreach ($data_cat as $item)
+                <div class="col-8">{{ Str::limit($item->name, 12) }}</div>
+                @foreach ($childs->where('parent_id', $item->id) as $second)
+                    <div>{{ $second->name }}</div>
+                @endforeach
+            @endforeach
+        </div> --}}
+        <div class="row">
+            @foreach ($data_cat as $item)
+                <div class="col-4 border border-warning">{{ Str::limit($item->name, 12) }}</div>
+                <div class="dropdown col-4">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Tanlang
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        @foreach ($childs->where('parent_id', $item->id) as $second)
+                            <li><a class="dropdown-item" href="#">{{ $second->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
+        </div>
+    </div>

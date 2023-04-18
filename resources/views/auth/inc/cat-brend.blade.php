@@ -14,7 +14,7 @@
             </div>
         </div>
         <br>
-            <h5>Asosiy m`lumot bazasiga tegishli guruhlar bu "Kategoriya" va "Brend".</h5>
+        <h5>Asosiy m`lumot bazasiga tegishli guruhlar bu "Kategoriya" va "Brend".</h5>
         <div class="d-flex">
             <div class="border border-black">
                 <h5 class="text-center">Kategoriya</h5>
@@ -28,14 +28,27 @@
                     </thead>
                     <tbody>
                         @foreach ($data_1 as $item)
-                        <tr>
-                                <th>{{ $loop->index + 1 }}</th>
+                            <tr>
+                                <th>{{ $item->id }}</th>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->parent_id }}</td>
-                        </tr>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            @foreach ($data_children->where('parent_id', $item->id) as $second)
+                                                <li>{{ $second->name }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
             <div class="border border-black">
                 <h5 class="text-center">Brend</h5>
@@ -49,14 +62,15 @@
                     </thead>
                     <tbody>
                         @foreach ($data_2 as $item)
-                        <tr>
-                                <th>{{ $loop->index + 1 }}</th>
+                            <tr>
+                                <th>{{ $item->id }}</th>
                                 <td>{{ $item->name }}</td>
                                 <td><img src="{{ asset('/storage/' . $item->image) }}" class="img-thumbnail zoom"></td>
-                        </tr>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
         <p></p>

@@ -49,18 +49,21 @@
                                 Sozlama
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item nav-link" href="{{ route('cat-brend') }}">
-                                <i class="fa-solid fa-cog fa-spin"></i>
-                                Kategoriya va Brend
-                            </a>
-                        </li>
+                        @if (Auth()->user()->email == 'hadajan@mail.ru')
+                            <li>
+                                <a class="dropdown-item nav-link" href="{{ route('cat-brend') }}">
+                                    <i class="fa fa-database"></i>
+                                    Kategoriya va Brend
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item nav-link" href="/">
-                                <i class="fa-solid fa-triangle-exclamation fa-fade"></i>
-                                Chiqish</a></li>
+                                <i class="fa fa-sign-out"></i>
+                                Chiqish</a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="{{ route('bozor') }}" class="nav-link">Bozor</a></li>

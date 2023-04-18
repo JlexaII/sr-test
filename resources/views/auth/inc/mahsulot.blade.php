@@ -9,11 +9,11 @@
     <div class="container">
         <main class="flex-shrink-0">
             <h1 class="mt-1">Mahsulotlar ro`yhati
-                <a href="javascript:void(0)" class="btn btn-primary" style="float: right;"
-                    data-bs-toggle="modal" data-bs-target="#add-product-modal" title="Mahsulot qo`shish">
-                        @error('image')
-                            <span class="text-warning">Rasm 128Kb katta. Qaytadtan tanlang rasm</span>
-                        @enderror
+                <a href="javascript:void(0)" class="btn btn-primary" style="float: right;" data-bs-toggle="modal"
+                    data-bs-target="#add-product-modal" title="Mahsulot qo`shish">
+                    @error('image')
+                        <span class="text-warning">Rasm 128Kb katta. Qaytadtan tanlang rasm</span>
+                    @enderror
                     <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
                 <!-- Izlash uchun -->
                 <div class="input-group">
@@ -26,7 +26,8 @@
                         <i class="fas fa-search"></i>
                     </button>
                     </form>
-                </div></h1>
+                </div>
+            </h1>
 
             <div class="table-responsive">
                 <table class="table table-hover table-bordered" id="projects-table">
@@ -54,8 +55,8 @@
                                 <td>{{ $project->price }}</td>
                                 <td>{{ $project->old_price }}</td>
                                 <td>{{ Str::limit($project->artikul, 5) }}</td>
-                                <td>{{ Str::limit($project->category_id, 4) }}</td>
-                                <td>{{ Str::limit($project->brand_id, 4) }}</td>
+                                <td title="{{ $project->category_id }}">{{ Str::limit($project->category_id, 4) }}</td>
+                                <td title="{{ $project->brand_id }}">{{ Str::limit($project->brand_id, 4) }}</td>
                                 <td><img src="{{ asset('/storage/' . $project->image) }}" class="img-thumbnail zoom">
                                 </td>
                                 <td>
@@ -77,8 +78,9 @@
                 </table>
             </div>
             <div>
-               <span class="text-white bg-warning p-2">Tarif boyicha Ball: {{ auth()->user()->tarif }} Ishlatingiz: {{ $product->total() }}
-                Qoldiq: {{ intval(auth()->user()->tarif) - intval($product->total()) }} </span>
+                <span class="text-white bg-warning p-2">Tarif boyicha Ball: {{ auth()->user()->tarif }} Ishlatingiz:
+                    {{ $product->total() }}
+                    Qoldiq: {{ intval(auth()->user()->tarif) - intval($product->total()) }} </span>
             </div>
             {{ $product->onEachSide(0)->links() }}
         </main>
@@ -103,7 +105,7 @@
                         <input type="hidden" value="1" name="active">
                         <input type="hidden" value="0" name="hit">
 
-                        <div class="mb-3">
+                        <div class="mb-3 border border-dark">
                             <input type="text" class="form-control" id="name" placeholder="mahsulot nomi"
                                 name="name" value="{{ old('name') }}" required autofocus
                                 class="{{ $errors->has('name') }}">
@@ -114,7 +116,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 border border-dark">
                             <input type="text" value="{{ old('soni') }}" required autofocus
                                 class="form-control {{ $errors->has('soni') }}" id="soni" placeholder="mahsulot soni"
                                 name="soni">
@@ -125,7 +127,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 border border-dark">
                             <input type="text" value="{{ old('price') }}" required autofocus
                                 class="form-control {{ $errors->has('price') }}" id="price" placeholder="Narxi"
                                 name="price">
@@ -136,7 +138,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 border border-dark">
                             <input type="text" value="{{ old('artikul') }}" required autofocus
                                 class="form-control {{ $errors->has('artikul') }}" id="artikul"
                                 placeholder="Unikal raqam" name="artikul">
@@ -147,7 +149,41 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <input type="hidden" value="0" name="brand_id">
+
+
+                        {{-- <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu">
+                                @foreach ($category as $item)
+                                    <li><a class="dropdown-item" href="#">{{ $item->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div> --}}
+
+                        <div class="form-floating">
+                            <select class="form-select" id="float" name="category_id">
+                                <option selected disabled class="text-primary">Kategoriyalar</option>
+                                @foreach ($category_0 as $item)
+                                    <option disabled class="text-success">{{ $item->name }}</option>
+                                    <optgroup>
+                                        @foreach ($children->where('parent_id', $item->id) as $second)
+                                            <option>{{ $second->name }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <p class="text-danger">{{ $message }}</p>
+                            @else
+                                <label for="float">Bu erda Kategoriya tanlang</label>
+                            @enderror
+                        </div>
+
+                        {{--  <div class="mb-3">
                             <input type="text" value="{{ old('category_id') }}" required autofocus
                                 class="form-control" id="category_id" placeholder="Unikal raqam" name="category_id">
                             @error('category_id')
@@ -158,7 +194,6 @@
                         </div>
 
                         <div class="mb-3">
-
                             <input type="text" value="{{ old('brand_id') }}" required autofocus class="form-control"
                                 id="brand_id" placeholder="Unikal raqam" name="brand_id">
                             @error('brand_id')
@@ -166,9 +201,9 @@
                             @else
                                 <label for="brand_id" class="form-label text-success">Brend</label>
                             @enderror
-                        </div>
+                        </div> --}}
 
-                        <div class="mb-3">
+                        <div class="mb-3 border border-dark">
                             <input type="file" required class="form-control" id="rasm" placeholder="Rasm"
                                 name="image">
                             @error('image')

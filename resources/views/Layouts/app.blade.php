@@ -31,8 +31,6 @@
         <div class="p-2 m-3">
             @include('include.footer')
         </div>
-        @include('include.turkums')
-
         @include('include.Loves')
 
         @include('include.savats')

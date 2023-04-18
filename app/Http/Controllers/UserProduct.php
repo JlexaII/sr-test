@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductStoreRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth;
@@ -15,16 +16,24 @@ class UserProduct extends Controller
     {
         $id = Auth::id();
         $product = Product::where('active', '1')->where('user_id', $id)->Paginate(15);
-        return view('auth.inc.mahsulot', ['product' => $product]);
+
+        $categories = Category::whereNull('parent_id')->get();
+        $categories_with_childern = Category::with('children')->whereNotNull('parent_id')->get();
+        return view('auth.inc.mahsulot', [
+            'product' => $product,
+            'category_0' => $categories,
+            'children' => $categories_with_childern
+        ]);
     }
 
-    public function addproduct(ProductStoreRequest $product) {
+    public function addproduct(ProductStoreRequest $product)
+    {
         $count = DB::table('products')->where('user_id', Auth::id())->count();
         $user_count = Auth::user()->tarif;
         $data = $product->validated();
+        Image::make($product->file('image'))->fit(320, 320);
         $path = $product->file('image')->store('storage/uploads', 'public');
         $data['image'] = $path;
-        image::make($product->file('image'))->fit(320, 320)->save($path);
         $count = DB::table('products')->where('user_id', Auth::id())->count();
         $user_count = Auth::user()->tarif;
         if ($user_count > $count) {
@@ -32,8 +41,9 @@ class UserProduct extends Controller
         } else {
             return redirect()->route('tarifout');
         }
+        $category = Category::get();
         $product = Product::where('active', '1')->where('user_id', Auth::id())->paginate(4);
-        return redirect()->route('mahsulot')->with('product', $product);
+        return redirect()->route('mahsulot')->with(['product' => $product, 'category' => $category]);
     }
 
     public function proddelete($id)
