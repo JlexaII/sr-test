@@ -1,30 +1,31 @@
-@section('footer')
-
     <!-- Footer ko'zi-->
-    <div class="container">
+    <div>
         <footer class="bg-info-subtle d-none d-md-flex d-xl-flex">
-            <div class="col-md-4 p-2">
-                <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Ltd. Guvohnoma № 637736</span>
-            </div>
-            <div class="">Telefon: +998 33 360 60 28</div>
-            <div class="p-1 row">
-                <div class="col-8">
-                    <ul class="list-unstyled d-flex">
-                        <li class="p-1"><a href="https://t.me/SilksRoads" target="_blank"><svg class="bi"
-                                    width="24" height="24">
-                                    <use xlink:href="#telegram"></use>
-                                </svg></a></li>
-                        <li class="p-1"><a href="https://www.instagram.com/silks1roads" target="_blank"><svg
-                                    class="bi" width="24" height="24">
-                                    <use xlink:href="#instagram"></use>
-                                </svg></a></li>
-                        <li class="p-1"><a href="https://www.facebook.com/SRMarketpleace" target="_blank"><svg
-                                    class="bi" width="24" height="24">
-                                    <use xlink:href="#facebook"></use>
-                                </svg></a></li>
-                    </ul>
+            <div class="container">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Ltd. Guvohnoma № 637736</span>
+                    </div>
+                    <div class="col">
+                        <h6 class="text-center">Telefon: +998 33 360 60 28</h6>
+                    </div>
+                    <div class="col-2">
+                        <ul class="row" style="list-style: none;">
+                            <li class="col-sm"><a href="https://t.me/SilksRoads" class="bi" target="_blank"><svg class=""
+                                        width="24" height="24">
+                                        <use xlink:href="#telegram"></use>
+                                    </svg></a></li>
+                            <li class="col-sm"><a href="https://www.instagram.com/silks1roads" target="_blank"><svg
+                                        class="bi" width="24" height="24">
+                                        <use xlink:href="#instagram"></use>
+                                    </svg></a></li>
+                            <li class="col-sm"><a href="https://www.facebook.com/SRMarketpleace" target="_blank"><svg
+                                        class="bi" width="24" height="24">
+                                        <use xlink:href="#facebook"></use>
+                                    </svg></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
         </footer>
 
 
@@ -40,8 +41,8 @@
                     <h6 class="text center">Turkum</h6>
                 </button>
 
-                <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="modal" data-bs-target="#SBasket"><i
-                        class="fa-solid fa-cart-shopping fa-1x"></i>
+                <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="modal"
+                    data-bs-target="#SBasket"><i class="fa-solid fa-cart-shopping fa-1x"></i>
                     <h6 class="text center basket">Savat</h6>
                 </button>
                 @if (Route::has('login'))
@@ -75,7 +76,8 @@
                         </form>
                     @endif
                 @else
-                    <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="modal" data-bs-target="#ModalK">
+                    <button type="button" class="btn bg-info bg-opacity-75" data-bs-toggle="modal"
+                        data-bs-target="#ModalK">
                         <i class="fa-solid fa-user fa-1x"></i>
                         <h6 class="text center">Profil</h6>
                     </button>

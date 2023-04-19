@@ -1,5 +1,3 @@
-@section('header')
-
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="facebook" viewBox="0 0 16 16">
             <path
@@ -15,77 +13,84 @@
         </symbol>
     </svg>
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top bg-info bg-opacity-75">
+        <nav class="navbar navbar-expand-lg bg-info bg-opacity-75">
             <a class="logo" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><img
                     src="images/logo.png" width="150" height="50">
             </a>
-            <a class="logo">
-                <img src="images/pngwing.png" alt="Tuyalar" width="150" height="50">
-            </a>
-            <div class="container-xxl">
+            <div class="container-xxl right-0">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item d-none d-md-block">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
-                                Turkum
-                            </a>
-                        </li>
-                        <li class="nav-item d-md-block">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SHeart"><i
-                                    class="fa fa-heart heart-p"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item d-none d-md-block">
-                            <a class="nav-link basket" data-bs-toggle="modal" data-bs-target="#SBasket" href="#"><i
-                                    class="fa fa-shopping-cart"></i>
-                            </a>
-                        </li>
-                        @if (Route::has('login'))
-                            @auth
-                                <li class="nav-item d-none d-md-block">
-                                    <div class="btn-group">
-                                        <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            data-bs-auto-close="true" aria-expanded="false"><i class="fa fa-user"></i></a>
-                                        <ul class="dropdown-menu">
-                                            @if (request()->user()->hasVerifiedEmail())
-                                                <li><a class="dropdown-item nav-link" href="{{ route('kabinet') }}">Kabinet</a>
-                                                </li>
-                                                <li><a class="dropdown-item nav-link" href="#">Zakazlar</a></li>
-                                                <form action="{{ route('logout') }}" method="post">
-                                                    @csrf
-                                                    <li><a class="dropdown-item nav-link" href="{{ route('logout') }}"
-                                                            onclick="event.preventDefault(); this.closest('form').submit();">Chiqish</a>
-                                                    </li>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('verification.send') }}" method="post"
-                                                    autocomplete="off">
-                                                    @csrf
-                                                    <div>
-                                                        <button type="submit" class="flex text-danger dropdown-item">Xatni
-                                                            takroran jo`natish</button>
-                                                    </div>
-                                                </form>
-                                            @endif
-                                        </ul>
-                                    </div>
-                                </li>
-                            @else
-                                @guest
+                <div class="collapse navbar-collapse small" id="navbarSupportedContent">
+                    <small>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item d-none d-md-block">
+                                <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                                    aria-controls="offcanvasScrolling">
+                                    Katalog
+                                </a>
+                            </li>
+                            <li class="nav-item d-md-block">
+                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SHeart"><i
+                                        class="fa fa-heart heart-p"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item d-none d-md-block">
+                                <a class="nav-link basket" data-bs-toggle="modal" data-bs-target="#SBasket"
+                                    href="#"><i class="fa fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                            @if (Route::has('login'))
+                                @auth
                                     <li class="nav-item d-none d-md-block">
-                                        <a class="nav-link" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#ModalK"
-                                            href="#"><i class="fa fa-user"></i></a>
+                                        <div class="btn-group">
+                                            <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                data-bs-auto-close="true" aria-expanded="false"><i
+                                                    class="fa fa-user"></i></a>
+                                            <ul class="dropdown-menu" style="font-size: 10px">
+                                                @if (request()->user()->hasVerifiedEmail())
+                                                    <li><a class="dropdown-item nav-link" href="{{ route('kabinet') }}"><i
+                                                                class="fa fa-book-open" aria-hidden="true"></i>
+                                                            Kabinet</a>
+                                                    </li>
+                                                    <li><a class="dropdown-item nav-link" href="#"><i
+                                                                class="fa fa-money-bill-1-wave" aria-hidden="true"></i>
+                                                            Zakazlar</a></li>
+                                                    <form action="{{ route('logout') }}" method="post">
+                                                        @csrf
+                                                        <li><a class="dropdown-item nav-link" href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                                                <i class="fa fa-door-open" aria-hidden="true"></i>
+                                                                Chiqish</a>
+                                                        </li>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('verification.send') }}" method="post"
+                                                        autocomplete="off">
+                                                        @csrf
+                                                        <div>
+                                                            <button type="submit"
+                                                                class="flex text-danger dropdown-item">Xatni
+                                                                takroran jo`natish</button>
+                                                        </div>
+                                                    </form>
+                                                @endif
+                                            </ul>
+                                        </div>
                                     </li>
-                                @endguest
-                            @endauth
-                        @endif
-                    </ul>
+                                @else
+                                    @guest
+                                        <li class="nav-item d-none d-md-block">
+                                            <a class="nav-link" aria-expanded="false" data-bs-toggle="modal"
+                                                data-bs-target="#ModalK" href="#"><i class="fa fa-user"></i></a>
+                                        </li>
+                                    @endguest
+                                @endauth
+                            @endif
+                        </ul>
+                    </small>
                     <div class="d6">
                         <form>
                             <input type="text" placeholder="Mahsulot qidirish">
@@ -98,29 +103,3 @@
             </div>
         </nav>
     </header>
-    <div class="collapse fixed-top mt-5 bg-white rounded p-3" id="collapseExample">
-        {{-- <div class="card card-text">
-            @foreach ($data_cat as $item)
-                <div class="col-8">{{ Str::limit($item->name, 12) }}</div>
-                @foreach ($childs->where('parent_id', $item->id) as $second)
-                    <div>{{ $second->name }}</div>
-                @endforeach
-            @endforeach
-        </div> --}}
-        <div class="row">
-            @foreach ($data_cat as $item)
-                <div class="col-4 border border-warning">{{ Str::limit($item->name, 12) }}</div>
-                <div class="dropdown col-4">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Tanlang
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        @foreach ($childs->where('parent_id', $item->id) as $second)
-                            <li><a class="dropdown-item" href="#">{{ $second->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endforeach
-        </div>
-    </div>

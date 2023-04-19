@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
-    <h1 class="p-5">Asosiy kontent</h1>
-    <h1 class="p-5">tovarlar</h1>
+    <div class="p-5 mt-5">
+        <h1>Asosiy kontent</h1>
+        <h1>tovarlar</h1>
+    </div>
 @endsection

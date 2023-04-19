@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
     <meta charset="UTF-8">
@@ -16,29 +16,23 @@
 </head>
 
 <body>
-    <div class="p-3">
-        <div class="row">
-            <div class="col-4">
-                @include('include.header')
-            </div>
-            <div class="position-sticky mt-5 p-5">
-                @include('include.Reklama')
-            </div>
-            <div class="mt-5 p-3">
-                @yield('content')
-            </div>
-        </div>
-        <div class="p-2 m-3">
-            @include('include.footer')
-        </div>
-        @include('include.Loves')
+    @include('include.header')
 
-        @include('include.savats')
+    @yield('content')
 
-        @include('include.Kirish')
+    @include('include.footer')
 
-        @include('include.SR')
-    </div>
+    @include('include.sidebarkatalog')
+
+    @include('include.Loves')
+
+    @include('include.savats')
+
+    @include('include.Kirish')
+
+    @include('include.SR')
+
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

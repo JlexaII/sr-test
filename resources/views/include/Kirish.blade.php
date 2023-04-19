@@ -119,7 +119,7 @@
                 <div class="modal-footer">
                     <ul class="nav col-md-4 tab-content list-unstyled d-flex">
                         <li>
-
+                            Parolni eslab qoling
                         </li>
                     </ul>
                 </div>

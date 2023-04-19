@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
 
-        View::composer('include.header', function($view) {
+        View::composer('include.sidebarkatalog', function($view) {
             $view->with([
                 'data_cat' => Category::whereNull('parent_id')->get(),
                 'childs' => Category::with('children')->whereNotNull('parent_id')->get(),

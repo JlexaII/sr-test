@@ -152,17 +152,7 @@
                         <input type="hidden" value="0" name="brand_id">
 
 
-                        {{-- <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown button
-                            </button>
-                            <ul class="dropdown-menu">
-                                @foreach ($category as $item)
-                                    <li><a class="dropdown-item" href="#">{{ $item->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div> --}}
+
 
                         <div class="form-floating">
                             <select class="form-select" id="float" name="category_id">
@@ -180,16 +170,6 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @else
                                 <label for="float">Bu erda Kategoriya tanlang</label>
-                            @enderror
-                        </div>
-
-                        {{--  <div class="mb-3">
-                            <input type="text" value="{{ old('category_id') }}" required autofocus
-                                class="form-control" id="category_id" placeholder="Unikal raqam" name="category_id">
-                            @error('category_id')
-                                <p class="text-danger">{{ $message }}</p>
-                            @else
-                                <label for="category_id" class="form-label text-success">Turkum</label>
                             @enderror
                         </div>
 
