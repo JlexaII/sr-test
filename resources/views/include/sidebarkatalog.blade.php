@@ -6,11 +6,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="dropdown list-group list-group-numbered align-items-start">
+            <div class="dropdown">
                 @foreach ($data_cat as $item)
                     <button
-                        class="btn btn-light dropdown-toggle list-group-item d-flex justify-content-between align-items-start fw-bold"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $item->name }}
+                        class="btn btn-light dropdown-toggle d-flex align-items-start fw-bold"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa {{ $item->content }}" aria-hidden="true"></i> {{ $item->name }}
                         <span class="badge bg-info rounded-pill">
                             {{ $childs->where('parent_id', $item->id)->count() }}
                         </span>

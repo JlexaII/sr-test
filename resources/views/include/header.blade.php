@@ -13,7 +13,7 @@
         </symbol>
     </svg>
     <header>
-        <nav class="navbar navbar-expand-lg bg-info bg-opacity-75">
+        <nav class="navbar fixed-top navbar-expand-lg bg-info bg-opacity-75">
             <a class="logo" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><img
                     src="images/logo.png" width="150" height="50">
             </a>
